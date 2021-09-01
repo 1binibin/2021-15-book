@@ -1,0 +1,24 @@
+{
+	"comment": {
+		"scope": "markdown",
+		"prefix": "init",
+		"body": [
+			"# 작성 날짜: ",
+			"",
+			"",
+			"# 오늘의 목표",
+			"",
+			"",
+			"# 공부 내용",
+			"",
+			"",
+			"# Review",
+			"",
+			"",
+			"",
+			"",
+			""
+		],
+		"description": "global md"
+	}
+}
