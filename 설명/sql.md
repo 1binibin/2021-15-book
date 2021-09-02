@@ -74,3 +74,11 @@ CREATE TABLE `users`
 	`createdAt` DATETIME NOT NULL DEFAULT NOW(),
 	ADD PRIMARY KEY (`idx`);
 ```
+
+### 새로운 계정 생성 및 데이터 베이스의 권한 적용
+```sql
+ CREATE USER 'sample'@'%' IDENTIFIED by '000000';
+ ALTER user 'sample'@'%' IDENTIFIED WITH mysql_native_password BY '000000';
+ GRANT ALL PRIVILEGES on sample.* to 'sample'@'%';
+ FLUSH PRIVILEGES;
+```
