@@ -5,7 +5,7 @@ const { error } = require('../../modules/util-module')
 const { pool } = require('../../modules/mysql-module')
 
 
-
+// createConnection 동시접속에 약하다.
 router.get('/list', async (req, res, next) => {
 	let sql = 'SELECT * FROM books'
 	let r = await pool.execute (sql)
