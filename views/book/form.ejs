@@ -1,16 +1,14 @@
 <%- include('../inc/head') %> 
 <%- include('../inc/header') %> 
 <div class="form-wrapper wrapper">
-	<h3 class="title-wrap">
-		<span class="bullet"></span> <%= title %> 
-	</h3>
-	<form action="/book/save" name="saveForm">
+	<%- include('../inc/book/title-bar', { title }) %> 
+	<form action="/book/save" method="POST" name="saveForm" onsubmit="return onSubmit(this);">
 		<table>
 			<tbody>
 				<tr>
-					<td class="title">도서명</td>
+					<td class="title require">도서명</td>
 					<td class="content">
-						<input type="text" name="title" class="form-control" placeholder="도서명">
+						<input type="text" name="title" class="form-control" placeholder="도서명" autofocus>
 					</td>
 				</tr>
 				<tr>
@@ -28,7 +26,7 @@
 				<tr>
 					<td class="title">도서 커버 이미지</td>
 					<td class="content">
-						<input type="file" name="upfile" class="form-control-file" placeholder="도서커버이미지">
+						<input type="file" name="cover" class="form-control-file" placeholder="도서커버이미지">
 					</td>
 				</tr>
 			</tbody>
