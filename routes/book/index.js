@@ -20,6 +20,7 @@ router.use('/', listRouter)					// HTML/GET: 리스트페이지
 module.exports = router
 
 /* 
+restful 규칙
 GET  		/book,/book/:page		페이지리스트 LIST - page
 GET  		/book/view/1				상세리스트 VIEW
 GET  		/book/form					신규 CREATE
