@@ -4,12 +4,20 @@ const express = require('express')
 const router = express.Router()
 const { error, cutTail, chgStatus } = require('../../modules/util')
 const { pool } = require('../../modules/mysql-init')
+const pager = require('../../modules/pager-init')
 
 
 
 router.get(['/', '/:page'], async (req, res, next) => {
 	try{
-		const sql = 'SELECT * FROM books ORDER BY idx DESC'
+		const sql = "SELECT COUNT(idx) FROM books"
+		const [[rs]] = await pool.execute(sql)
+		const totalRecord = rs['COUNT(idx)']
+		const page = req.params.page || 1
+		const { listCnt, pagerCnt } = pager(page, totalRecord)
+		res.json( { page, listCnt, pagerCnt, totalRecord} )
+		/*
+		const sql = 'SELECT * FROM books ORDER BY idx DESC LIMIT ?, ?'
 		const [rs]= await pool.execute(sql)
 
 		const books = rs.map (v => {
@@ -26,6 +34,7 @@ router.get(['/', '/:page'], async (req, res, next) => {
 			const css= 'book/list'
 		
 		res.status(200).render('book/list', { title, description, js, css, books })
+		*/
 	}
 	catch(err) {
 		next(error(err))
