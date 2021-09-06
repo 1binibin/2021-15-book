@@ -1,5 +1,6 @@
 /************* global require *************/
 const express = require('express')
+const { appendFile } = require('fs')
 const app = express()
 const path = require('path')
 const methodInit = require('./modules/method-init')
@@ -14,7 +15,7 @@ require('./modules/server-init')(app, process.env.PORT)
 app.set('view engine', 'ejs')
 app.set('views', './views')
 app.locals.pretty = true
-app.locals.tabTitle = 'Express 게시판'
+app.locals.tabTitle = 'Express 게시판'	// views들의 전역변수?
 
 
 /*************** middleware ***************/

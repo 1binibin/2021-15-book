@@ -28,4 +28,6 @@ GET  		/book/form/1				수정 UPDATE
 POST 		/book								저장 save
 PUT  		/book								업데이트 update
 DELETE 	/book								삭제 delete
+
+static 은 use로 받아서 보낸다.
 */
