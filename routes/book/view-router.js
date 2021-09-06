@@ -1,13 +1,18 @@
 const express = require('express')
 const router = express.Router()
-const { error } = require('../../modules/util')
+const moment = require('moment')
+const { error, chgStatus } = require('../../modules/util')
 const { pool } = require('../../modules/mysql-init')
 
-router.get('/:dix', async (req, res, next) => {
+router.get('/:idx', async (req, res, next) => {
 	try {
-		const sql = 'SELECT * FROM books WHERE idx=?'
+		const sql = "SELECT * FROM books WHERE idx=?"
 		const values = [req.params.idx]
 		const [[book]] = await pool.execute(sql, values)
+
+			book.createdAt = moment(book.createdAt).format('YYYY-MM-DD HH:mm:ss')
+			book.writer = book.writer || '작가미상'
+			book.status = chgStatus(book.status)
 
 		const title = '도서 상세 정보'
 		const description = '선택하신 도서의 상세 정보 입니다.'
@@ -21,6 +26,5 @@ router.get('/:dix', async (req, res, next) => {
 		next(error(500, err))
 	}
 })
-
 
 module.exports = router
