@@ -7,7 +7,7 @@ const { pool } = require('../../modules/mysql-init')
 
 
 
-router.get(['/', '/list', '/list/:page'], async (req, res, next) => {
+router.get(['/', '/:page'], async (req, res, next) => {
 	try{
 		const sql = 'SELECT * FROM books ORDER BY idx DESC'
 		const [rs]= await pool.execute(sql)
