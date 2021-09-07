@@ -18,9 +18,9 @@ app.use(express.urlencoded({ extended: false }))
 
 app.use('/', express.static( path.join(__dirname, 'public') ))
 
-// app.post('/file', upload.single('upfile'), (req, res, next) => {
-// app.post('/file', upload.array('upfile'), (req, res, next) => {
-// app.post('/file', upload.fields([{name: 'upfile'}, {name: 'avatarfile'}]), (req, res, next) => {
+// app.post('/file', upload.single('upfile'), (req, res, next) => {//input type="file"->1개
+// app.post('/file', upload.array('upfile'), (req, res, next) => {//input type="file"-> 여려개를 배열형태로
+// app.post('/file', upload.fields([{name: 'upfile'}, {name: 'avatarfile'}]), (req, res, next) => { // fields별로 나누어서
 
 	app.post('/file', uploader.single('upfile'), (req, res, next) => {
 		res.json({ ...req.body, ...req.file })
