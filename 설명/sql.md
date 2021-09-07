@@ -82,3 +82,32 @@ CREATE TABLE `users`
  GRANT ALL PRIVILEGES on sample.* to 'sample'@'%';
  FLUSH PRIVILEGES;
 ```
+
+
+## SQL문
+```sql
+INSERT
+UPDATE: WHERE
+DELETE: WHERE
+SELECT: WHERE, ORDER, LIMIT, JOIN
+
+INSERT INTO 테이블명 SET 필드명=값, 필드명=값 ...
+INSERT INTO 테이블명 SET (필드명, 필드명2, ...) VALUES (값, 값2)
+UPDATE 테이블명 SET 필드명=값, 필드명=값 ... [필수] WHERE
+DELETE FROM 테이블명 [필수] WHERE
+
+SELECT 필드명1, 필드명2 FROM 테이블명;
+SELECT * FROM 테이블명;
+SELECT COUNT(idx)  FROM 테이블명 [선택: WHERE]; -- ORDER: 에러남
+SELECT * FROM 테이블명 WHERE idx = 1;
+SELECT * FROM 테이블명 WHERE idx > 5 AND idx <= 9;
+SELECT * FROM 테이블명 WHERE title = '나비';			-- 나비
+SELECT * FROM 테이블명 WHERE title LIKE '나비';			-- 나비
+SELECT * FROM 테이블명 WHERE title LIKE '나비%';		-- 나비...
+SELECT * FROM 테이블명 WHERE title LIKE '%나비';		-- ...나비
+SELECT * FROM 테이블명 WHERE title LIKE '%나비%';		-- ...나비...
+SELECT * FROM 테이블명 WHERE ... ORDER BY idx DESC;
+SELECT * FROM 테이블명 WHERE ... ORDER BY idx ASC;
+SELECT * FROM 테이블명 WHERE ... ORDER BY title ASC, content DESC;
+SELECT * FROM 테이블명 WHERE ... ORDER... LIMIT 시작idx, 갯수;
+```
