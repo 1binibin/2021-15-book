@@ -42,7 +42,7 @@ const fileFilter = (req, file, cb) => {	// 어느 파일을 업로드 하거나,
 }
 
 const storage = multer.diskStorage({ destination, filename })
-const limits = { fileSize: 1000}	// fileSize: multiform형식에서 최대 파일 사이즈(bytes)
+const limits = { fileSize: mega * 5}	// fileSize: multiform형식에서 최대 파일 사이즈(bytes)
 
 module.exports = multer({ storage, limits, fileFilter })
 

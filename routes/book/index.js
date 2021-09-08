@@ -21,13 +21,13 @@ module.exports = router
 
 /* 
 restful 규칙
-GET  		/book,/book/:page		페이지리스트 LIST - page
-GET  		/book/view/1				상세리스트 VIEW
-GET  		/book/form					신규 CREATE
-GET  		/book/form/1				수정 UPDATE
 POST 		/book								저장 save
 PUT  		/book								업데이트 update
 DELETE 	/book								삭제 delete
+GET  		/book/form					신규 CREATE
+GET  		/book/form/1				수정 UPDATE
+GET  		/book/view/1				상세리스트 VIEW
+GET  		/book,/book/:page		페이지리스트 LIST - page
 
 static 은 use로 받아서 보낸다.
 */
