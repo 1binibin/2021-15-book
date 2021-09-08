@@ -17,8 +17,8 @@ router.get(['/', '/:page'], async (req, res, next) => {
 
 		sql = `
 		SELECT B.*, F.oriname, F.savename 
-		FROM booksB	LEFT JOIN files F
-		ON B.idx = F.fidx
+		FROM books B LEFT JOIN files F 
+		ON B.idx = F.fidx 
 		WHERE B.status < 3 
 		ORDER BY B.idx DESC LIMIT ?, ?`
 		values = [pager.startIdx.toString(), pager.listCnt.toString()]

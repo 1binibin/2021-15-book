@@ -39,7 +39,7 @@ const chgStatus = status => {
 	}
 }
 
-const imgExt = ['jpg', 'jpeg', 'gif', 'png' ]
+const imgExt = ['jpg', 'jpeg', 'gif', 'png']
 const mediaExt = ['mp3', 'mp4']
 const docExt = ['ppt', 'pptx', 'xls', 'xlsx', 'doc', 'docx', 'hwp', 'pdf']
 const zipExt = ['zip', 'alz']
