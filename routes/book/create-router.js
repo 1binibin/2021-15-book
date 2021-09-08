@@ -2,9 +2,9 @@ const express = require('express')
 const router = express.Router()
 const { error } = require('../../modules/util')
 const { pool } = require('../../modules/mysql-init')
-const uploader = require('../../middlewares/multer-mw')
+const uploader = require('../../middlewares/multer-book-mw')
 
-router.post('/', uploader.single('cover'), async (req, res, next) => {
+router.post('/', uploader.fields( [ {name: 'cover'}, {name: 'upfile'} ] ), async (req, res, next) => {
 	let sql, values
 	try {
 		const { title, writer, content } = req.body
@@ -12,11 +12,13 @@ router.post('/', uploader.single('cover'), async (req, res, next) => {
 		values = [title, writer, content]
 		const [rs]= await pool.execute(sql, values)
 
-		if(req.file) { // 첨부파일이 있다면
-			const { originalname, filename,mimetype, size } = req.file
-			sql = 'INSERT INTO files SET fidx=?, oriname=?, savename=?, mimetype=?, size=?'
-			values = [rs.insertId, originalname, filename, mimetype, size]
-			const [rs2] = await pool.execute(sql, values)
+		if(req.files) { // 첨부파일이 있다면
+			for(let [k, [v]] of Object.entries(req.files)) {
+				let { originalname, filename,mimetype, size } = v
+				sql = 'INSERT INTO files SET fidx=?, oriname=?, savename=?, mimetype=?, size=?, fieldname=?'
+				values = [rs.insertId, originalname, filename, mimetype, size, k.substr(0, 1).toUpperCase()]
+				await pool.execute(sql, values)
+			}
 		}
 	res.redirect('/book')
 	}

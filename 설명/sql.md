@@ -111,3 +111,21 @@ SELECT * FROM 테이블명 WHERE ... ORDER BY idx ASC;
 SELECT * FROM 테이블명 WHERE ... ORDER BY title ASC, content DESC;
 SELECT * FROM 테이블명 WHERE ... ORDER... LIMIT 시작idx, 갯수;
 ```
+
+## SQL문 (JOIN)
+```sql
+SELECT B.*, F.oriname, F.savename, F.idx AS fileIdx  
+FROM books B LEFT JOIN files F 
+ON B.idx = F.fidx 
+WHERE B.status < 3
+ORDER BY B.idx DESC
+LIMIT 0, 5;
+
+SELECT books.*, files.oriname, files.savename, files.idx AS fileIdx  
+FROM books 
+LEFT JOIN files 
+ON books.idx = files.fidx 
+WHERE books.status < 3
+ORDER BY books.idx DESC
+LIMIT 0, 5;
+```
