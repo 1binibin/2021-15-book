@@ -1,4 +1,5 @@
 storages
+storages-remove
 # Logs
 logs
 *.log

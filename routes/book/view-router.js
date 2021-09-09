@@ -10,8 +10,8 @@ router.get('/:idx', async (req, res, next) => {
 		sql = `
 		SELECT 
 		B.*, 
-		F.oriname, F.savename, F.fidx AS fid,
-		F2.oriname AS oriname2, F2.savename AS savename2, F.fidx AS fid2
+		F.oriname, F.savename, F.idx AS id,
+		F2.oriname AS oriname2, F2.savename AS savename2, F.idx AS id2
 		FROM books B 
 		LEFT JOIN files F 
 		ON B.idx = F.fidx AND F.fieldname = 'C'
@@ -26,7 +26,7 @@ router.get('/:idx', async (req, res, next) => {
 			book.status = chgStatus(book.status)
 			book.cover = book.savename ? relPath(book.savename) : null
 			book.upfile = book.savename2 ? relPath(book.savename2) : null
-			book.isImg = isImg(book.savename2)
+			book.isImg = isImg(book.savename2 || '')
 
 		const title = '도서 상세 정보'
 		const description = '선택하신 도서의 상세 정보 입니다.'
