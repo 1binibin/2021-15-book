@@ -13,14 +13,12 @@ router.get('/:idx', async (req, res, next) => {
 		F.oriname, F.savename, F.idx AS id,
 		F2.oriname AS oriname2, F2.savename AS savename2, F.idx AS id2
 		FROM books B 
-		LEFT JOIN files F 
-		ON B.idx = F.fidx AND F.fieldname = 'C'
-		LEFT JOIN files F2
-		ON B.idx = F2.fidx AND F2.fieldname = 'U'
-		WHERE B.idx=?`
+		LEFT JOIN files F ON B.idx = F.fidx AND F.fieldname = 'C'
+		LEFT JOIN files F2 ON B.idx = F2.fidx AND F2.fieldname = 'U'
+		WHERE B.status > '0' AND B.idx=? `
 		values = [req.params.idx]
 		const [[book]] = await pool.execute(sql, values)
-
+		if(book){
 			book.createdAt = moment(book.createdAt).format('YYYY-MM-DD HH:mm:ss')
 			book.writer = book.writer || '작가미상'
 			book.status = chgStatus(book.status)
@@ -33,7 +31,8 @@ router.get('/:idx', async (req, res, next) => {
 		const css = 'book/view'
 		const js = 'book/view'
 		
-		if(book) res.status(200).render('book/view', { title, description, css, js, book })
+		res.status(200).render('book/view', { title, description, css, js, book })
+	}
 		else next(error(400, "존재하지 않는 데이터 입니다."))
 	}
 	catch(err) {
