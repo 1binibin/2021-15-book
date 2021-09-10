@@ -6,6 +6,7 @@ const { error, cutTail, chgStatus, getIcon, relPath } = require('../../modules/u
 const { pool } = require('../../modules/mysql-init')
 const createPager = require('../../modules/pager-init')
 
+
 router.get(['/', '/:page'], async (req, res, next) => {
 	let sql, values;
 	try {
@@ -36,8 +37,8 @@ router.get(['/', '/:page'], async (req, res, next) => {
 			v.cover =v.cover ? relPath(v.cover) : null
 			v.icon = v.icon ? getIcon(v.icon) : null
 		})
-		const title = '도서 목록'
-		const description = '등록된 도서들의 리스트 입니다.'
+		const title = req.lang.TITLE_LIST
+		const description = req.lang.DESC_LIST
 		const js = 'book/list'
 		const css = 'book/list'
 		
