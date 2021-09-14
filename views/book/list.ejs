@@ -23,19 +23,19 @@
 					<td class="content-td">
 						<% if(book.icon) { %>
 							<img src="<%= book.icon %>" class="icon">
-							<%= book.content %>&nbsp;
-					<% } %>
-				</td>
+						<% } %>&nbsp;
+						<%= book.content %>
+					</td>
 					<td class="cover-td">
 						<% if(book.cover) { %>
-						<img src="<%= book.cover %>" class="cover">
+							<img src="<%= book.cover %>" class="cover">
 						<% } %>
 					</td>
 					<td><%= book.createdAt %></td>
 					<td><%= book.status %></td>
 				</tr>
-			<% } %>  
-		</tbody>
+			<% } %> 
+			</tbody>
 	</table>
 	<%- include('../inc/pager', { ...pager }) %> 
 </div>

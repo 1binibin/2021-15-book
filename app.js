@@ -22,7 +22,8 @@ app.locals.tabTitle = 'Express 게시판'	// views들의 전역변수?
 /*************** middleware ***************/
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
-app.use(methodInit())
+app.use(methodInit()) // method-override
+
 
 
 /*************** static init **************/
