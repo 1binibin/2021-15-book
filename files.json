@@ -1,0 +1,22 @@
+{
+	"cover": [{
+		"fieldname": "cover",
+		"originalname": "D10.jpg",
+		"encoding": "7bit",
+		"mimetype": "image/jpeg",
+		"destination": "C:\\Users\\user\\Desktop\\코딩\\15.sql\\storages\\210915",
+		"filename": "210915_ec911d4f-b217-4e66-8c5d-95e8cedd3ba2.jpg",
+		"path": "C:\\Users\\user\\Desktop\\코딩\\15.sql\\storages\\210915\\210915_ec911d4f-b217-4e66-8c5d-95e8cedd3ba2.jpg",
+		"size": 715948
+	}],
+	"upfile": [{
+		"fieldname": "upfile",
+		"originalname": "D10.jpg",
+		"encoding": "7bit",
+		"mimetype": "image/jpeg",
+		"destination": "C:\\Users\\user\\Desktop\\코딩\\15.sql\\storages\\210915",
+		"filename": "210915_cac91c46-9acf-475e-ae10-61bf5e01454e.jpg",
+		"path": "C:\\Users\\user\\Desktop\\코딩\\15.sql\\storages\\210915\\210915_cac91c46-9acf-475e-ae10-61bf5e01454e.jpg",
+		"size": 715948
+	}]
+}
