@@ -16,7 +16,7 @@ router.get(['/', '/:page'], async (req, res, next) => {
 		const totalRecord = cnt['COUNT(idx)']
 		const page = Number(req.params.page || 1)
 		const pager = createPager(page, totalRecord, 5, 3)
-
+		
 		sql = `
 		SELECT B.*, F.savename AS cover, F2.savename AS icon
 		FROM books B 
