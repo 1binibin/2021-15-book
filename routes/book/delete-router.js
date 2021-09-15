@@ -6,7 +6,6 @@ const { error, moveFile } = require('../../modules/util')
 const { pool } = require('../../modules/mysql-init')
 
 router.delete('/',async (req, res, next) => {
-	let sql, values
 	try {
 		// sql = "DELETE FROM books WHERE idx=?"
 		sql = "UPDATE books SET status='0' WHERE idx=" + req.body.idx

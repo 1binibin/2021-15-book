@@ -24,7 +24,7 @@ function onRemoveFile(e) {
 	var idx = this.dataset['idx'];
 	var lang = this.dataset['lang'];
 	var parent = this.parentNode;
-	axios.delete('/'+lang+'/book/api/file', { params: { idx: idx } }).then(onSuccess).catch(onError);
+	axios.delete('/book/file/'+idx).then(onSuccess).catch(onError);
 	function onSuccess(r) {
 		if(r.data.code == 200) parent.remove();
 	}
