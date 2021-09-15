@@ -14,7 +14,8 @@
 
 const express = require('express')
 const router = express.Router()
-const { error, moveFile } = require('../../modules/util')
+const createError = require('http-errors')
+const { moveFile } = require('../../modules/util')
 const { pool } = require('../../modules/mysql-init')
 const uploader = require('../../middlewares/multer-book-mw')
 
@@ -53,12 +54,9 @@ router.post('/', uploader.fields( [ {name: 'cover'}, {name: 'upfile'} ] ), async
 	// res.redirect(`/${req.lang}/book`)
 	}
 	catch (err){
-		next(error(500, err))
+		next(createError(500, err))
 	}
 })
 
-router.put('/', (req, res,next) => {
-	res.send('받음')
-})
 
 module.exports = router

@@ -1,7 +1,8 @@
 const express = require('express')
 const router = express.Router()
+const createError = require('http-errors')
 const moment = require('moment')
-const { error, chgStatus, relPath, isImg } = require('../../modules/util')
+const { chgStatus, relPath, isImg } = require('../../modules/util')
 const { pool } = require('../../modules/mysql-init')
 const { NO_EXIST } = require('../../modules/lang-init')
 
@@ -33,10 +34,10 @@ router.get('/:idx', async (req, res, next) => {
 		
 		res.status(200).render('book/view', { css, js, book })
 	}
-		else next(error(400, NO_EXIST))
+		else next(createError(400, NO_EXIST))
 	}
 	catch(err) {
-		next(error(500, err))
+		next(createError(500, err))
 	}
 })
 
