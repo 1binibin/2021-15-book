@@ -1,7 +1,7 @@
 <%- include('../inc/head', { css }) %> 
-<%- include('../inc/header') %> 
-<script src="/js/promise.polyfill.min.js"></script>
-<script src="/js/axios.min.js"></script>
+<%- include('../inc/header') %>
+<script src="/js/promise.polyfill.min.js"></script> 
+<script src="/js/axios.min.js"></script> 
 <%- include('../inc/banner-auth') %> 
 <div class="form-wrapper wrapper">
 	<%- include('../inc/title-bar') %> 
@@ -20,7 +20,7 @@
 				<tr>
 					<td class="title require"><%= AUTH.PASSWD %></td>
 					<td class="content">
-						<input type="password" name="password" class="form-control" placeholder="<%= AUTH.PASSWD %>" autofocus>
+						<input type="password" name="passwd" class="form-control" placeholder="<%= AUTH.PASSWD %>" autofocus>
 						<div class="valid passwd"></div>
 					</td>
 				</tr>
@@ -54,12 +54,12 @@
 			<button class="btn btn-success" id="btSave">
 				<%= BT.JOIN %>
 			</button>
-			<button class="btn btn-danger" type="reset"><%=  BT.RESET %></button>
+			<button class="btn btn-danger" type="reset"><%= BT.RESET %></button>
 		</div>
 	</form>
 </div>
 <script>
-	var errTxt = {
+	var ERR = {
 		ID_NULL				:	"<%= ERROR.JOIN.ID_NULL %>",
 		ID_LEN				:	"<%= ERROR.JOIN.ID_LEN %>",
 		ID_TAKEN			:	"<%= ERROR.JOIN.ID_TAKEN %>",
