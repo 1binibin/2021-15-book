@@ -13,7 +13,7 @@ var usernameEl = f.username;
 var emailEl = f.email;
 var useridTxt = document.querySelector('.userid');
 var passwdTxt = document.querySelector('.passwd');
-var passwdTxt2 = document.querySelector('.passwd2');
+var passwd2Txt = document.querySelector('.passwd2');
 var usernameTxt = document.querySelector('.username');
 var emailTxt = document.querySelector('.email');
 
@@ -58,53 +58,83 @@ function verifyUserid() {
 
 function verifyPasswd() {
 	var passwd = passwdEl.value.trim();
-	useridEl.classList.remove('error');
-	useridEl.classList.remove('active');
-	useridTxt.classList.remove('error');
-	useridTxt.innerHTML = '';
-	if(passwd === '') {
+	verifyReset(passwdEl, passwdTxt)
+	if(passwd === '' || passwd.length < 6 || passwd.length > 24) {
+		verifyFalse(passwdEl, passwdTxt, passwd === '' ?  ERR.PW_NULL : ERR.PW_LEN)
 		return false;
 	}
-	if(passwd.length < 6 || passwd.length > 24) {
-		return false;
+	else {
+		verifyTrue(passwdEl, passwdTxt)
+		return true;
 	}
-	return true;
 }
 
 function verifyPasswd2() {
 	var passwd2 = passwd2El.value.trim();
-	if(passwd2 === '') {
+	verifyReset(passwd2El, passwd2Txt)
+	if(passwd2 === '' || passwd2.length < 6 || passwd2.length > 24) {
+		verifyFalse(passwd2El, passwd2Txt, passwd2 === '' ?  ERR.PW2_NULL : ERR.PW2_LEN)
 		return false;
 	}
-	if(passwd2.length < 6 || passwd2.length > 24) {
-		return false;
+	else {
+		verifyTrue(passwd2El, passwd2Txt)
+		return true;
 	}
-	return true;
 }
 
 function verifyPasswdEqual() {
 	var passwd = passwdEl.value.trim();
 	var passwd2 = passwd2El.value.trim();
-	if(passwd !== passwd2) {
+	if(!(verifyPasswd() && verifyPasswd2())) {
 		return false;
 	}
-	return true;
+	if(passwd !== passwd2) {
+		passwdEl.classList.add('error');
+		passwd2El.classList.add('error');
+		passwdTxt.classList.add('error');
+		passwd2Txt.classList.add('error');
+		passwdTxt.innerHTML = ERR.PW_TAKEN;
+		passwd2Txt.innerHTML = ERR.PW_TAKEN;
+		return false;
+	}
+	else{
+		passwdEl.classList.remove('error');
+		passwd2El.classList.remove('error');
+		passwdTxt.innerHTML = '';
+		passwd2Txt.innerHTML = '';
+		return true;
+	}
 }
 
 function verifyUsername() {
 	var username = usernameEl.value.trim();
+	verifyReset(usernameEl, usernameTxt)
 	if(username === '') {
+		verifyFalse(usernameEl, usernameTxt, ERR.NAME_NULL);
 		return false;
 	}
-	return true;
+	else {
+		verifyTrue(usernameEl, usernameTxt)
+		return true;
+	}
 }
 
 function verifyEmail() {
+	var regExp = /^([\w\.\_\-])*[a-zA-Z0-9]+([\w\.\_\-])*([a-zA-Z0-9])+([\w\.\_\-])+@([a-zA-Z0-9]+\.)+[a-zA-Z0-9]{2,8}$/;
 	var email = emailEl.value.trim();
+	verifyReset(emailEl, emailTxt)
 	if(email === '') {
+		verifyFalse(emailEl, emailTxt, ERR.EMAIL_NULL )
 		return false;
 	}
-	return true;
+	else if(!regExp.test(email)) {
+		verifyFalse(emailEl, emailTxt, ERR.EMAIL_TAKEN)
+		return false;
+	}
+	else {
+		verifyTrue(emailEl, emailTxt)
+		return true;
+	}
 }
 
 function verifyReset(el, elTxt) {
@@ -118,10 +148,9 @@ function verifyFalse(el, elTxt,  msg) {
 	elTxt.classList.add('error');
 	elTxt.innerHTML = msg;
 	el.classList.add('error');
-	el.focus();
 }
 
 function verifyTrue(el, elTxt, msg) {
 	el.classList.add('active');
-	elTxt.innerHTML = msg;
+	elTxt.innerHTML = msg || '';
 }
