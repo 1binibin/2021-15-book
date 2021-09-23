@@ -4,42 +4,56 @@ module.exports = _lang => {
 		case 'KO' :
 			return {
 				ERROR: {
-					NOT_FOND 	: '존재하지 않는 데이터 입니다.',
+					NOT_FOND 		: '존재하지 않는 데이터 입니다.',
+					JOIN: {
+						ID_NULL		:	'아이디를 입력하세요.',
+						ID_LEN		:	'아이디는 6자 이상 24자 이하 입니다.',
+						ID_TAKEN	:	'사용할 수 없는 아이디 입니다.',
+						ID_OK			:	'사용 가능한 아이디 입니다.',
+						PW_NULL		: '패스워드를 입력하세요',
+						PW_LEN		:	'패스워드는 6자 이상 24자 이하 입니다.',
+						PW2_NULL	: '패스워드를 재입력 하세요.',
+						PW2_LEN		: '패스워드 재입력은 6자이상 24자 이하입니다.',
+						PW_TAKEN	: '패스워드가 일치하지 않습니다',
+						NAME_NULL : '이름을 입력하세요.',
+						EMAIL_NULL: '이메일을 입력하세요',
+						EMAIL_TAKEN: '이메일 형식이 올바르지 않습니다.',
+					}
 				},
 				GLOBAL: {
-					LOGO			: '도서관리시스템',
-					TAP_TITLE	: 'Express 게시판',
-					NAVI			: [ '도서 등록', '도서 리스트', '로그인', '로그아웃', '회원가입' ],
+					LOGO				: '도서관리시스템',
+					TAP_TITLE		: 'Express 게시판',
+					NAVI				: [ '도서 등록', '도서 리스트', '로그인', '로그아웃', '회원가입' ],
 				},
 				LIST: {
-					TITLE 		: '도서 목록',
-					DESC 			: '등록된 도서들의 리스트 입니다.',
+					TITLE 			: '도서 목록',
+					DESC 				: '등록된 도서들의 리스트 입니다.',
 				},
 				VIEW: {
-					TITLE 		: '도서 상세 정보',
-					DESC 			: '선택하신 도서의 상세 정보 입니다.',
+					TITLE 			: '도서 상세 정보',
+					DESC 				: '선택하신 도서의 상세 정보 입니다.',
 				},
 				CREATE: {
-					TITLE 		: '도서 등록',
-					DESC 			: '등록할 도서를 아래에서 입력하세요.',
+					TITLE 			: '도서 등록',
+					DESC 				: '등록할 도서를 아래에서 입력하세요.',
 				},
 				JOIN: {
-					TITLE 		: '회원 가입',
-					DESC 			: '회원님의 가입 정보를 아래에 입력해 주세요.',
+					TITLE 			: '회원 가입',
+					DESC 				: '회원님의 가입 정보를 아래에 입력해 주세요.',
 				},
 				UPDATE: {
-					TITLE 		: '도서 수정',
-					DESC			: '수정할 도서 내용을 아래에서 변경하세요.'
+					TITLE 			: '도서 수정',
+					DESC				: '수정할 도서 내용을 아래에서 변경하세요.'
 				},
 				FIELD: {
-					NO				: '번호' ,
-					TITLE			: '제목',
-					WRITER	: '저자',
-					CONTENT : '요약설명',
-					DATE		: '등록일',
-					COVER		: '표지',
-					STATUS	: '판매',
-					UPFILE	: '첨부파일',
+					NO					: '번호' ,
+					TITLE				: '제목',
+					WRITER			: '저자',
+					CONTENT 		: '요약설명',
+					DATE				: '등록일',
+					COVER				: '표지',
+					STATUS			: '판매',
+					UPFILE			: '첨부파일',
 				},
 				AUTH: {
 					USERID		: '아이디' ,
@@ -64,6 +78,20 @@ module.exports = _lang => {
 			return {
 				ERROR: {
 					NOT_FOND 	: 'Data Not Found.',
+					JOIN: {
+						ID_NULL		:	'Please enter your ID.',
+						ID_LEN	:	'ID must be between 6 and 24 characters.',
+						ID_TAKEN		:	'You can not use this ID.',
+						ID_OK			:	'Username is available.',
+						PW_NULL		: 'Please enter your password.',
+						PW_LEN		:	'Password must be between 6 and 24 characters.',
+						PW2_NULL	: 'Please re-enter your password',
+						PW2_LEN		: 'Re-entering the password must be between 6 and 24 characters.',
+						PW_TAKEN	: 'Passwords do not match.',
+						NAME_NULL : 'Please enter your name.',
+						EMAIL_NULL: 'Please enter your email.',
+						EMAIL_TAKEN: 'Email format is incorrect.',
+					}
 				},
 				GLOBAL: {
 					LOGO			: 'Book Management System',
