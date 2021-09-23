@@ -9,6 +9,7 @@
 
 const crypto = require('crypto')
 const bcrypt = require('bcrypt')
+const cipher = require('crypto-js')
 
 const salt = 'asdf1234!@#$'
 
@@ -39,3 +40,21 @@ const passVerify = async () => {
 }
 
 passVerify();
+
+const passVerity2 = async () => {
+	let pass = '123456'
+	let salt = 'jasdf9)a'
+	let hash = await bcrypt.hash( pass + salt, 9 )
+	let compare = await bcrypt.compare( pass + salt , hash )
+	console.log("verify2: ", compare)
+}
+
+passVerity2()
+
+// 암복호화 예제
+const encrypt = cipher.AES.encrypt('아버지를 아버지', salt).toString()
+console.log("encrypt: ", encrypt)
+
+const decrypt = cipher.AES.decrypt(encrypt, salt)
+const text = decrypt.toString(cipher.enc.Utf8)
+console.log("decrypt: ", text)
