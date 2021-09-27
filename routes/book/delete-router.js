@@ -5,8 +5,9 @@ const router = express.Router()
 const createError = require('http-errors')
 const { moveFile } = require('../../modules/util')
 const { pool } = require('../../modules/mysql-init')
+const { isUser, isGuest, isMyBook } = require('../../middlewares/auth-mw')
 
-router.delete('/', async (req, res, next) => {
+router.delete('/', isUser, isMyBook('body'), async (req, res, next) => {
 	try {
 		// sql = "DELETE FROM books WHERE idx=?"
 		sql = "UPDATE books SET status='0' WHERE idx=" + req.body.idx
