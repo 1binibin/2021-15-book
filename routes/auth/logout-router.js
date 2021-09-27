@@ -1,11 +1,14 @@
 const path = require('path')
 const express = require('express')
 const router = express.Router()
-const { error } = require('../../modules/util')
+const { alert } = require('../../modules/util')
 const { pool } = require('../../modules/mysql-init')
 
+// 로그아웃 처리
 router.get('/', (req, res, next) => {
-	// 로그아웃 처리
+	req.session.destroy()
+	res.locals.user = null
+	res.send( alert('로그아웃 되었습니다.') )
 })
 
 
