@@ -6,6 +6,7 @@ const path = require('path')
 const methodInit = require('./modules/method-init')
 const logger = require('./middlewares/morgan-mw')
 const session = require('./middlewares/session-mw')
+const locals = require('./middlewares/locals-mw')
 
 
 
@@ -25,6 +26,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 app.use(methodInit()) // method-override
 app.use(session(app))
+app.use(locals)
 
 
 
@@ -32,13 +34,10 @@ app.use(session(app))
 app.use('/', express.static(path.join(__dirname, 'public')))
 app.use('/uploads', express.static(path.join(__dirname, 'storages')))
 
+/*************** logger init **************/
 app.use(logger)
 
-app.use( (req, res, next) => {
-	console.log( req.session.user )
-	res.locals.user = req.session.user || null
-	next()
-})
+
 
 
 /*************** router init **************/
