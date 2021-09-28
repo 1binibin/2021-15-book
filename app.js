@@ -30,14 +30,9 @@ app.use(method()) // method-override
 app.use(session(app))
 
 
-/**************** passport ***************/
-passportModule(passport)
-app.use(passport.initialize())
-app.use(passport.session())
 
-/**************** locals *****************/
 
-app.use(locals)
+
 
 
 
@@ -45,6 +40,17 @@ app.use(locals)
 app.use('/', express.static(path.join(__dirname, 'public')))
 app.use('/uploads', express.static(path.join(__dirname, 'storages')))
 
+/**************** passport ***************/
+passportModule(passport)
+app.use(passport.initialize())
+app.use(passport.session())
+app.use((req, res, next) => {
+	console.log(req.user); 
+	console.log(req.session); 
+	next()
+})
+/**************** locals *****************/
+app.use(locals)
 /*************** logger init **************/
 app.use(logger)
 
@@ -68,6 +74,7 @@ app.use('/api/auth', apiAuthRouter)
 /**************** error init **************/
 const _404Router = require('./routes/error/404-router')
 const _500Router = require('./routes/error/500-router')
+const { nextTick } = require('process')
 
 app.use(_404Router)
 app.use(_500Router)

@@ -5,8 +5,9 @@ const createError = require('http-errors')
 const { chgStatus, relPath, isImg } = require('../../modules/util')
 const { findBook } = require('../../models/book')
 const { NO_EXIST } = require('../../modules/lang-init')
+const {  isMyBook } = require('../../middlewares/auth-mw')
 
-router.get('/:idx', async (req, res, next) => {
+router.get('/:idx',  async (req, res, next) => {
 	req.app.locals.PAGE = 'VIEW'
 	req.app.locals.css = 'book/view'
 	req.app.locals.js = 'book/view'
