@@ -5,7 +5,7 @@ const {  moveFile } = require('../../../modules/util')
 const { updateFile, findFile } = require('../../../models/file')
 
 router.delete('/:idx', async (req, res, next) => {
-	try {
+	try { 
 		await updateFile(req.params.idx, [['status', '0']])
 		const { file } = await findFile(req.params.idx)
 		await moveFile(file.savename)
