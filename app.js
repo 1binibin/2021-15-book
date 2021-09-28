@@ -23,6 +23,11 @@ app.set('views', './views')
 app.locals.pretty = true
 
 
+/*************** static init **************/
+app.use('/', express.static(path.join(__dirname, 'public')))
+app.use('/uploads', express.static(path.join(__dirname, 'storages')))
+
+
 /*************** middleware ***************/
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
@@ -30,31 +35,18 @@ app.use(method()) // method-override
 app.use(session(app))
 
 
-
-
-
-
-
-
-/*************** static init **************/
-app.use('/', express.static(path.join(__dirname, 'public')))
-app.use('/uploads', express.static(path.join(__dirname, 'storages')))
-
 /**************** passport ***************/
 passportModule(passport)
 app.use(passport.initialize())
 app.use(passport.session())
-app.use((req, res, next) => {
-	console.log(req.user); 
-	console.log(req.session); 
-	next()
-})
+
+
 /**************** locals *****************/
 app.use(locals)
+
+
 /*************** logger init **************/
 app.use(logger)
-
-
 
 
 /*************** router init **************/
@@ -74,7 +66,6 @@ app.use('/api/auth', apiAuthRouter)
 /**************** error init **************/
 const _404Router = require('./routes/error/404-router')
 const _500Router = require('./routes/error/500-router')
-const { nextTick } = require('process')
 
 app.use(_404Router)
 app.use(_500Router)
