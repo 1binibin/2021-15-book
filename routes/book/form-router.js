@@ -14,20 +14,22 @@ router.get('/', isUser, (req, res, next) => {
 	res.status(200).render('book/form')
 })
 
-router.get('/:idx', isUser, isMyBook('params'),  async (req, res, next) => {
+router.get('/:idx', isUser, isMyBook('params'), async (req, res, next) => {
 	req.app.locals.PAGE = 'UPDATE'
 	req.app.locals.js = 'book/form'
 	req.app.locals.css = 'book/form'
-
 	try {
 		const { book } = await findBook(req.params.idx)
-
 		if(book) {
-			book.cover = book.ori ? { ori: book.ori,  path: relPath(book.name), idx: book.fid } : null
-			book.upfile = book.ori2 ? { ori: book.ori2,  idx: book.fid2 } : null
+			book.cover = book.oriname 
+				? { ori: book.oriname, path: relPath(book.savename), idx: book.id } 
+				: null
+			book.upfile = book.oriname2 
+				? { ori: book.oriname2, idx: book.id2 } 
+				: null
 			res.status(200).render('book/form', { book })
 		}
-		else next(createError(400, NO_EXIST) )
+		else next(createError(400, NO_EXIST))
 	}
 	catch(err) {
 		next(createError(err))
