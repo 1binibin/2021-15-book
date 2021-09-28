@@ -22,7 +22,7 @@ if(document.querySelector('#btRemoveCover'))
 if(document.querySelector('#btRemoveFile'))
 	document.querySelector('#btRemoveFile').addEventListener('click', onRemoveFile)
 
-function onRemoveFile(e) {
+function onRemoveFile(e) { 
 	if(confirm('파일을 삭제하시겠습니까?\n삭제하신 파일은 되돌릴 수 없습니다.')) {
 		var idx = this.dataset['idx'];
 		var parent = this.parentNode;
