@@ -1,7 +1,7 @@
 
 const { pool } = require('../../modules/mysql-init')
 
-const updateBook = book => {
+const updateBook = async book => {
 	try {
 		let { title, writer, content, idx } = book
 		let sql = " UPDATE books SET title=?, writer=?, content=? WHERE idx = ? "
