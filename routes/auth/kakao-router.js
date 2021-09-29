@@ -5,13 +5,11 @@ const passport = require('passport')
 const {  } = require('../../modules/util')
 // const {  } = require('../../models/auth')
 
-router.get('/',  passport.authenticate('kakao', {	failureRedirect: '/',}), (req, res, next) => {
-	res.redirect('/')
-})
+router.get('/',  passport.authenticate('kakao'))
 
 // 리다이렉트
-router.get('/cb', (req, res, next) => {
-
+router.get('/cb', passport.authenticate('kakao', { failureRedirect: '/' }) ,(req, res, next) => {
+	res.redirect('/')
 })
 
 
