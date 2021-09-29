@@ -16,7 +16,18 @@ pool.execute() 나오는 데이터 => SELECT [ [ {id:1...}, {id:2...}, {id:3...}
 const findUser = async (key, value) => {
 	let sql 
 	try {
-		sql = ` SELECT * FROM users WHERE ${key} = ? `  
+		sql = ` SELECT 
+		U.*, 
+		S.idx AS sidx, 
+		S.provider, 
+		S.snsname, 
+		S.displayName, 
+		S.email AS snsEmail, 
+		S.profileURL, 
+		S.status AS snsStatus
+		FROM users AS U LEFT JOIN users_sns AS S
+		ON U.idx = S.fidx
+		WHERE U.${key} = ? `  
 		const [r] = await pool.execute(sql, [value])
 		return { success: true, user: r[0] }
 	} 
@@ -37,14 +48,6 @@ const findAllUser = async (order='ASC') => {
 	}
 }
 
-const findSnsUser = async (userid) => {
-	try {
-		let sql = " SELECT COUNT(idx) FROM "
-	}
-	catch(err) {
-		throw new Error(err)
-	}
-}
 
 const existUser = async (key,value) => {
 	sql = ` SELECT * FROM users WHERE ${key} = ? `
@@ -70,4 +73,4 @@ const loginUser = async ( userid, passwd ) => {
 	}
 }
 
-module.exports = { findUser, findAllUser, existUser, loginUser, findSnsUser }
+module.exports = { findUser, findAllUser, existUser, loginUser }

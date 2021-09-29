@@ -42,6 +42,7 @@ app.use(passport.session())
 
 
 
+
 /***************** locals *****************/
 app.use(locals)
 

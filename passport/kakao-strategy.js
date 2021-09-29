@@ -23,7 +23,6 @@ const cb = async (accessToken, refreshToken, profile, done) => {
 			let { idx: id } = await createSnsUser(user, userSns)
 			user.idx = id
 		}
-		console.log(user)
 		done(null, user)
 	}
 	catch(err) {
