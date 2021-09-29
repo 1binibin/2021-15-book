@@ -29,8 +29,10 @@ const createUser = async (user) => {
 		hashPasswd = await bcrypt.hash(passwd + salt, Number(round))
 		// 검증
 		if(isValid(user) !== true) return { success: false, msg: isValid(user).msg }
-		if(await existUser('userid', userid)) return { success: false, msg: '아이디가 존재합니다' }
-		if(await existUser('email', email)) return { success: false, msg: '이메일이 존재합니다' }
+		let { success } = await existUser('userid', userid)
+		if(success) return { success: false, msg: '아이디가 존재합니다' }
+		let { success: success2 } = await existUser('email', email)
+		if(success2) return { success: false, msg: '이메일이 존재합니다' }
 
 		sql = " INSERT INTO users SET userid=?, passwd=?, username=?, email=? "
 		const [rs] = await pool.execute(sql, [userid, hashPasswd, username, email])
@@ -40,6 +42,7 @@ const createUser = async (user) => {
 		return { success: false, err }
 	}
 }
+
 
 const createSnsUser = async ({ userid }, { accessToken, refreshToken, provider, snsid, snsName, displayName, profileURL, email }) => {
 	let sql

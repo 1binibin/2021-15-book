@@ -16,9 +16,11 @@ const langMW = require('./middlewares/lang-mw')
 /*************** server init **************/
 require('./modules/server-init')(app, process.env.PORT)
 
+
 /*************** static init **************/
 app.use('/', express.static(path.join(__dirname, 'public')))
 app.use('/uploads', express.static(path.join(__dirname, 'storages')))
+
 
 /************** view engine ***************/
 app.set('view engine', 'ejs')
@@ -29,17 +31,18 @@ app.locals.pretty = true
 /*************** middleware ***************/
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
-app.use(method()) // method-override
+app.use(method())
 app.use(session(app))
 
 
-/**************** passport ***************/
+/**************** passport ****************/
 passportModule(passport)
 app.use(passport.initialize())
 app.use(passport.session())
 
 
-/**************** locals *****************/
+
+/***************** locals *****************/
 app.use(locals)
 
 
@@ -60,13 +63,10 @@ app.use('/auth', authRouter)
 app.use('/api/auth', apiAuthRouter)
 
 
-
 /**************** error init **************/
 const _404Router = require('./routes/error/404-router')
 const _500Router = require('./routes/error/500-router')
 
 app.use(_404Router)
 app.use(_500Router)
-
-
 

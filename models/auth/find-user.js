@@ -39,9 +39,9 @@ const findAllUser = async (order='ASC') => {
 
 const findSnsUser = async (userid) => {
 	try {
-		let sql = " SELECT COUNT(idx) FROM users "
-	} 
-	catch (err) {
+		let sql = " SELECT COUNT(idx) FROM "
+	}
+	catch(err) {
 		throw new Error(err)
 	}
 }
@@ -49,7 +49,7 @@ const findSnsUser = async (userid) => {
 const existUser = async (key,value) => {
 	sql = ` SELECT * FROM users WHERE ${key} = ? `
 	const [rs] = await pool.execute(sql, [value])
-	return rs.length === 1 // return rs.length ? true : false
+	return rs.length ? { success: true, idx: rs[0].idx } :{ success: false, idx: null }
 }
 
 const loginUser = async ( userid, passwd ) => {
