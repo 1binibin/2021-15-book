@@ -61,10 +61,10 @@ const findAllUser = async (order='ASC') => {
 // GET: field, value -> 회원 존재 여부 확인
 const existUser = async (key,value) => {
 	try {
-		sql = ` SELECT * FROM users WHERE ${key} = ? `
+		const sql = ` SELECT * FROM users WHERE ${key} = ? `
 		const [rs] = await pool.execute(sql, [value])
 		return rs.length ? { success: true, idx: rs[0].idx } :{ success: false, idx: null }
-	} 
+		}
 	catch (err) {
 		throw new Error(err)
 	}
