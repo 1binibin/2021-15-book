@@ -6,23 +6,23 @@ const isValid = require('./is-valid')
 
 
 const createUser = async (user) => {
-	let { userid, passwd, username, email, sql, hashPasswd } = user
-	let { BCRYPT_SALT: salt, BCRYPT_ROUND: round } = process.env
 	try {
-		hashPasswd = await bcrypt.hash(passwd + salt, Number(round))
+		let { userid, passwd, username, email, sql } = user
+		let { BCRYPT_SALT: salt, BCRYPT_ROUND: round } = process.env
+		let hashPasswd = await bcrypt.hash(passwd + salt, Number(round))
 		// 검증
-		if(isValid(user) !== true) return { success: false, msg: isValid(user).msg }
+		if(isValid(user) !== true) return false
 		let { success } = await existUser('userid', userid)
-		if(success) return { success: false, msg: '아이디가 존재합니다' }
+		if(success) return false
 		let { success: success2 } = await existUser('email', email)
-		if(success2) return { success: false, msg: '이메일이 존재합니다' }
+		if(success2) return false
 
 		sql = " INSERT INTO users SET userid=?, passwd=?, username=?, email=? "
 		const [rs] = await pool.execute(sql, [userid, hashPasswd, username, email])
-		return rs.affectedRows === 1 ? { success: true } : { success: false, msg: '저장에 실패하였습니다' }
+		return rs.affectedRows === 1
 	}
 	catch(err) {
-		return { success: false, err }
+		throw new Error(err)
 	}
 }
 
