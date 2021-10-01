@@ -13,6 +13,7 @@ pool.execute() 나오는 데이터 => INSERT, UPDATE, DELETE [{affectedRows},{fi
 pool.execute() 나오는 데이터 => SELECT [ [ {id:1...}, {id:2...}, {id:3...} ],{field info}]
 */
 
+// GET: field, value를 통한 회원 한명의 데이터
 const findUser = async (key, value) => {
 	let sql 
 	try {
@@ -24,18 +25,27 @@ const findUser = async (key, value) => {
 		S.displayName, 
 		S.email AS snsEmail, 
 		S.profileURL, 
-		S.status AS snsStatus
-		FROM users AS U LEFT JOIN users_sns AS S
+		S.status AS snsStatus,
+		A.domain,
+		A.apikey
+		FROM users AS U 
+		LEFT JOIN users_sns AS S
 		ON U.idx = S.fidx
+		LEFT JOIN users_api AS A
+		ON U.idx = A.fidx
 		WHERE U.${key} = ? `  
 		const [r] = await pool.execute(sql, [value])
-		return { success: true, user: r[0] }
+		if(r.length === 1)
+			return { success: true, user: r[0] }
+			else
+				return { success: false, user: null }
 	} 
 	catch (err) {
-		return {success: false, user: null,  err}
+		throw new Error(err)
 	}
 }
 
+// GET: 모든 회원 데이터
 const findAllUser = async (order='ASC') => {
 	let sql 
 	try {
@@ -44,17 +54,23 @@ const findAllUser = async (order='ASC') => {
 		return { success: true, users }
 	} 
 	catch (err) {
-		return {success: false, user: null,  err}
+		throw new Error(err)
 	}
 }
 
-
+// GET: field, value -> 회원 존재 여부 확인
 const existUser = async (key,value) => {
-	sql = ` SELECT * FROM users WHERE ${key} = ? `
-	const [rs] = await pool.execute(sql, [value])
-	return rs.length ? { success: true, idx: rs[0].idx } :{ success: false, idx: null }
+	try {
+		sql = ` SELECT * FROM users WHERE ${key} = ? `
+		const [rs] = await pool.execute(sql, [value])
+		return rs.length ? { success: true, idx: rs[0].idx } :{ success: false, idx: null }
+	} 
+	catch (err) {
+		throw new Error(err)
+	}
 }
 
+// GET: 로그인 처리
 const loginUser = async ( userid, passwd ) => {
 	let sql, compare
 	try {
@@ -69,7 +85,7 @@ const loginUser = async ( userid, passwd ) => {
 		else return { success: false, user: null, msg: '아이디가 일치하지 않습니다.' }
 	}
 	catch (err) {
-		return { success: false, user: null, err: err }
+		throw new Error(err)
 	}
 }
 
