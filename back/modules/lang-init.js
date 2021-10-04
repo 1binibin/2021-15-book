@@ -6,6 +6,7 @@ module.exports = _lang => {
 				ERROR: {
 					NOT_FOUND 		: '존재하지 않는 데이터 입니다.',
 					SQL_ERROR			: '데이터 처리에 실패하였습니다.',
+					AUTH_ERROR		: '권한이 없습니다.',
 					JOIN: {
 						ID_NULL			: '아이디를 입력하세요.',
 						ID_LEN			: '아이디는 6자 이상 24자 이하 입니다.',
@@ -26,7 +27,7 @@ module.exports = _lang => {
 				GLOBAL: {
 					LOGO					: '도서관리시스템',
 					TAB_TITLE			: 'Express 게시판',
-					NAVI					: ['도서 등록', '도서 리스트', '로그인', '로그아웃', '회원가입', '마이페이지']
+					NAVI					: ['도서 등록', '도서 리스트', '로그인', '로그아웃', '회원가입', '마이페이지', '회원정보수정']
 				},
 				LIST: {
 					TITLE 				: '도서 목록',
@@ -102,6 +103,7 @@ module.exports = _lang => {
 				ERROR: {
 					NOT_FOUND 		: 'Data Not Found',
 					SQL_ERROR			: 'Failed to process Data.',
+					AUTH_ERROR		: 'You do not have permission.',
 					JOIN: {
 						ID_NULL			: 'Please enter your ID',
 						ID_LEN			: 'ID must be between 6 and 24 characters',
