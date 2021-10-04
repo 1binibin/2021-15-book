@@ -4,7 +4,8 @@ const router = express.Router()
 const createError = require('http-errors')
 const { alert } = require('../../modules/util')
 const { isUser } = require('../../middlewares/auth-mw')
-const { findUser, updateUser } = require('../../models/auth')
+const { findUser, updateUser, updateDomain } = require('../../models/auth')
+const { pool } = require('../../modules/mysql-init')
 
 // 내 회원정보 보여주기 GET: /mypage/user
 router.get('/', isUser, async (req, res, next) => {
@@ -22,7 +23,7 @@ router.get('/', isUser, async (req, res, next) => {
 })
 
 // 회원정보 수정 POST: /mypage/user
-router.post('/' , async (req, res, next) => {
+router.post('/' , isUser, async (req, res, next) => {
 	try {
 		const { ERROR } = req.app.locals
 		const r = await updateUser(req.body)
@@ -35,8 +36,16 @@ router.post('/' , async (req, res, next) => {
 })
 
 // apikey 발행 POST: /mypage/user/api
-router.post('/api' , async (req, res, next) => {
-
+router.post('/api' , isUser, async (req, res, next) => {
+	try {
+		const { ERROR } = req.app.locals
+		const r = await updateDomain(req.body.domain, req.user.idx)
+		if(r) res.send(alert('Success', '/mypage/user'))
+		else res.send(alert(ERROR.SQL.ERROR, '/'))
+	} 
+	catch (err) {
+		next(createError(err))
+	}
 })
 
 
