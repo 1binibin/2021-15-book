@@ -4,47 +4,29 @@
     "cors": "^2.8.5",
     "crypto-js": "^4.1.1",
     "dotenv": "^10.0.0",
-    "ejs": "^3.1.6",
     "express": "^4.17.1",
-    "express-mysql-session": "^2.1.7",
-    "express-session": "^1.17.2",
     "fs-extra": "^10.0.0",
     "helmet": "^4.6.0",
     "http-errors": "^1.8.0",
     "lodash": "^4.17.21",
-    "method-override": "^3.0.0",
     "moment": "^2.29.1",
     "morgan": "^1.10.0",
-    "multer": "^1.4.3",
     "mysql": "^2.18.1",
     "mysql2": "^2.3.0",
     "numeral": "^2.0.6",
-    "passport": "^0.4.1",
-    "passport-kakao": "^1.0.1",
-    "passport-local": "^1.0.0",
-    "passport-naver": "^1.0.6",
     "rotating-file-stream": "^2.1.6",
-    "sequelize": "^6.6.5",
     "uuid": "^8.3.2",
     "validator": "^13.6.0"
   },
-  "name": "15.sql",
+  "name": "api",
   "version": "1.0.0",
-  "main": "01.app.js",
+  "description": "",
+  "main": "app.js",
   "scripts": {
     "start": "nodemon app",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/1binibin/2021-15-sql.git"
-  },
   "keywords": [],
   "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/1binibin/2021-15-sql/issues"
-  },
-  "homepage": "https://github.com/1binibin/2021-15-sql#readme",
-  "description": ""
+  "license": "ISC"
 }

@@ -167,15 +167,16 @@ function verifyTrue(el, elTxt, msg) {
 
 
 function onApikey() {
-	var idx = f2.idx.value;
-	axios.get('/api/mypage/key/')
-		.then(function (r) {
-			if(r.data.code === 200) apikeyEl.value = r.data.apikey;
-			else console.log(r);
-		})
-		.catch(function (err) {
-			console.log(err);
-		});
+	if(confirm('APIKey를 변경하면 바로 적용 됩니다. \n적용 후에는 되돌릴수 없습니다.')){
+		axios.get('/api/mypage/key/')
+			.then(function (r) {
+				if(r.data.code === 200) apikeyEl.value = r.data.apikey;
+				else console.log(r);
+			})
+			.catch(function (err) {
+				console.log(err);
+			});
+	}
 }
 
 function onApiSubmit(e) {
