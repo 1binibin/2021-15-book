@@ -2,7 +2,6 @@ const path = require('path')
 const express = require('express')
 const createError = require('http-errors')
 const router = express.Router()
-const { serverPath } = require('../../modules/util')
 const { findFile } = require('../../models/file')
 
 router.get('/:idx', async (req, res, next) => {
