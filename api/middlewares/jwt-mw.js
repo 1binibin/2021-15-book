@@ -31,6 +31,7 @@ const createCookie = (domain, apikey, res) => {
 const isApiUser = async (req, res, next) => {
   const errMsg = 'Authorization Fail'
   try {
+    // const domain = req.headers.origin
     const domain = req.protocol + '://' + req.headers.host
     const apikey = req.query.apikey
 
