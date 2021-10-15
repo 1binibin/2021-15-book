@@ -10,6 +10,6 @@ module.exports = (_page, _totalRecord, _listCnt = 5, _pagerCnt = 3) => {
 	const prevPage = page === 1 ? 1 : page - 1
 	const nextPage = page === totalPage ? totalPage : page + 1
 	const prevPager = startPage === 1 ? 1 : startPage - 1
-	const nextPager = page === totalPage ? totalPage : endPage +1
+	const nextPager = endPage === totalPage ? totalPage : endPage +1
 	return { page, totalPage, listCnt, pagerCnt, totalPage, startIdx, startPage, endPage, prevPage, nextPage, prevPager, nextPager }
 }
