@@ -1,5 +1,4 @@
 const bcrypt = require('bcrypt')
-const createError = require('http-errors')
 const { pool } = require('../../modules/mysql-init')
 const { existUser } = require('./find-user')
 const isValid = require('./is-valid')

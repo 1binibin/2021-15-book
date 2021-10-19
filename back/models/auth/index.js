@@ -6,4 +6,5 @@ module.exports = {
 	...require('./find-user'),
 	...require('./update-user'),
 	...require('./update-key'),
+	...require('./delete-user'),
 }
