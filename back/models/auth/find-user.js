@@ -98,17 +98,16 @@ const findPasswd = async (key, passwd) => {
 	try {
 		const field = typeof Number(key) === 'number' ? 'idx' : 'userid'
 		sql = ` SELECT passwd FROM users WHERE ${field}=? AND status > '0' `
-		console.log(sql, passwd, key)
-		const [ r ] = await pool.execute(sql, [key])
+		const [r] = await pool.execute(sql, [key])
 		if(r.length === 1) {
-			compare = await bcrypt.compare( passwd + process.env.BCRYPT_SALT, r[0].passwd )
+			compare = await bcrypt.compare(passwd + process.env.BCRYPT_SALT, r[0].passwd)
 			return compare 
 				? { success: true } 
-				: { success: false } 
+				: { success: false }
 		}
-		else return { success: false } 
+		else return { success: false }
 	}
-	catch(err) {
+	catch (err) {
 		throw new Error(err)
 	}
 }

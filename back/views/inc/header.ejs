@@ -12,7 +12,7 @@
 					<a href="/<%= LANG %>/auth/withdrawal" class="sub"><%= GLOBAL.NAVI[8] %></a>
 				</div>
 			</div>
-			<a href="/<%= LANG %>/auth/logout" class="navi"><%= GLOBAL.NAVI[3] %></a>
+			<!-- <a href="/<%= LANG %>/auth/logout" class="navi"><%= GLOBAL.NAVI[3] %></a> -->
 			<% } else { %>
 				<a href="/<%= LANG %>/auth/login" class="navi"><%= GLOBAL.NAVI[2] %></a>
 				<a href="/<%= LANG %>/auth/form" class="navi"><%= GLOBAL.NAVI[4] %></a>
@@ -30,13 +30,11 @@
 		var protocol = location.protocol;
 		var host = location.host;
 		var pathname = location.pathname;
-		var path = pathname.split('/');
-		console.log( protocol, host, pathname );
-		console.log( path );
+		var path = pathname.split('/')
 		location.href = protocol + '//' + host + ((path[1] === 'ko' || path[1] === 'en')
 			? pathname.replace('/'+path[1]+'/', '/'+_lang+'/')
-			: '/' + _lang + pathname)
-	};
+			: '/' + _lang + pathname);
+	}
 
 	$('.header-wrapper .bt-navi').mouseenter(onNaviEnter);
 	$('.header-wrapper .bt-navi').mouseleave(onNaviLeave);
