@@ -15,7 +15,7 @@ pool.execute() 나오는 데이터 => SELECT [ [ {id:1...}, {id:2...}, {id:3...}
 
 // GET: field, value를 통한 회원 한명의 데이터
 const findUser = async (key, value) => {
-	let sql 
+	let sql
 	try {
 		sql = ` SELECT 
 		U.*, 
