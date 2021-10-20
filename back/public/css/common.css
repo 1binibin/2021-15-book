@@ -9,10 +9,13 @@ body {padding-bottom: 120px;}
 
 .header-wrapper {background-color: darkslategrey; color: #f9f9f9; display: flex; align-items: center;}
 .header-wrapper h1.logo {font-size: 1.25em; padding: .75em;}
-.header-wrapper .navi-wrap {display: flex; margin-left: auto;}
-.header-wrapper .navi-wrap .navi {padding: 1em 1.5em;}
-.header-wrapper .navi-wrap .navi.ex {background-color: rgba(0, 0, 0, .5);}
-.header-wrapper .navi-wrap .navi:hover {background-color: mistyrose; color:darkslategrey;}
+.header-wrapper .slide-wrap {display: flex; margin-left: auto; width: 50%; justify-content: right;}
+.header-wrapper .slide-wrap .mobile-wrap {display:none; width: 50%;}
+
+.header-wrapper .mobile-wrap .navi-wrap {display: flex; margin-left: auto;}
+.header-wrapper .mobile-wrap .navi-wrap .navi {padding: 1em 1.5em; background-color: #3b5f5f;}
+.header-wrapper .mobile-wrap .navi-wrap .navi.ex {background-color: rgba(0, 0, 0, .5);}
+.header-wrapper .mobile-wrap .navi-wrap .navi:hover {background-color: mistyrose; color:darkslategrey;}
 
 
 .header-wrapper a:link {text-decoration: none; color: inherit;}
@@ -38,19 +41,15 @@ body {padding-bottom: 120px;}
 .title-bar {font-size: 1.5em; margin-bottom: 1em;}
 .title-bar .bullet {display: inline-block; width: 4px; height: 12px; background-color: mediumaquamarine; margin-right: 8px;}
 
-.header-wrapper .fa-bars {display: none; padding: 1em; margin-left: auto; cursor: pointer;}
-.header-wrapper .fa-bars:hover {background-color: mistyrose;}
+.header-wrapper .slide-wrap i.fa-bars {display: none; padding: 1em; cursor: pointer;}
+.header-wrapper .slide-wrap i.fa-bars:hover {background-color: mistyrose;}
 
 
-.header-wrapper .navi-wrap.mobile {display: none;  background-color: lightblue; position: absolute; top: 100%; right: 0%; justify-content: space-between; flex-direction: column;}
-.header-wrapper .navi-wrap.mobile .navi {padding: 1em 1.6em;}
-.header-wrapper .navi-wrap.mobile .navi.ex {background-color: rgba(0, 0, 0, .5);}
-.header-wrapper .navi-wrap.mobile .navi:hover {background-color: mistyrose; color:darkslategrey;}
 
 @media screen and (max-width: 991px) {
-  .header-wrapper {position: relative;}
-  .header-wrapper .fa-bars {display: block;}
-  .header-wrapper .navi-wrap {display: none;}
+  .header-wrapper .slide-wrap {position: relative;}
+  .header-wrapper .slide-wrap i.fa-bars {display: inline-block;}
+  .header-wrapper .slide-wrap .mobile-wrap { position: absolute; top: 100%;
+    right: 0; }
+  .header-wrapper .mobile-wrap .navi-wrap {flex-direction: column; }
 }
-
-
