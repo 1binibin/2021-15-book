@@ -1,7 +1,7 @@
 <header class="header-wrapper">
 	<h1 class="logo"><a href="/<%= LANG %>/book"><%= GLOBAL.LOGO %></a></h1>
-		<div class="slide-wrap" id="bars">
-			<i class="fa fa-bars"></i>
+		<div class="slide-wrap" id="bars" >
+			<i class="fa fa-bars" ></i>
 			<div class="mobile-wrap">
 				<nav class="navi-wrap">
 					<a href="/<%= LANG %>/book" class="navi"><%= GLOBAL.NAVI[1] %></a>
@@ -52,15 +52,15 @@
 	$('#bars').mouseenter(onShow);
 	$('#bars').mouseleave(onHide);
 
-	function onShow(e) {
-		console.log(e.currentTarget);
-		console.log(e.target);
+	function onShow() {
 		$(this).find('.mobile-wrap').stop().slideDown();
 	}
 
-	function onHide(e) {
-		console.log(e.currentTarget);
-		$(this).find('.mobile-wrap').stop().slideUp();
+	function onHide() {
+		$(this).find('.mobile-wrap').stop().slideUp(function() {
+			$('.header-wrapper .slide-wrap .mobile-wrap').attr('style', '')
+		});
+		console.log($(this).next())
 	} 
 
 
