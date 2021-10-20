@@ -19,6 +19,26 @@
 			<% } %>
 			<a href="//127.0.0.1:8080" class="navi ex"><%= GLOBAL.NAVI[7] %></a>
 	</nav>
+	<i class="fa fa-bars"></i>
+	<nav class="navi-wrap mobile">
+		<a href="/<%= LANG %>/book" class="navi"><%= GLOBAL.NAVI[1] %></a>
+		<% if(user) { %>
+			<a href="/<%= LANG %>/book/form" class="navi"><%= GLOBAL.NAVI[0] %></a>
+			<div class="navi bt-navi">
+				<%= GLOBAL.NAVI[5] %>
+				<div class="navi-sub">
+					<a href="/<%= LANG %>/mypage/user" class="sub"><%= GLOBAL.NAVI[6] %></a>
+					<a href="/<%= LANG %>/auth/logout" class="sub"><%= GLOBAL.NAVI[3] %></a>
+					<a href="/<%= LANG %>/auth/withdrawal" class="sub"><%= GLOBAL.NAVI[8] %></a>
+				</div>
+			</div>
+			<!-- <a href="/<%= LANG %>/auth/logout" class="navi"><%= GLOBAL.NAVI[3] %></a> -->
+			<% } else { %>
+				<a href="/<%= LANG %>/auth/login" class="navi"><%= GLOBAL.NAVI[2] %></a>
+				<a href="/<%= LANG %>/auth/form" class="navi"><%= GLOBAL.NAVI[4] %></a>
+			<% } %>
+			<a href="//127.0.0.1:8080" class="navi ex"><%= GLOBAL.NAVI[7] %></a>
+	</nav>
 	<nav class="lang-wrap">
 		<a href="javascript:chgLang('ko');" class="navi <%= (LANG === 'ko' ? 'active': '') %>">한국어</a>
 		<span> | </span>
@@ -44,5 +64,22 @@
 	function onNaviLeave() {
 		$(this).find('.navi-sub').stop().slideUp();
 	}
+	$('.header-wrapper i.fa-bars').click(onShow);
+	// $('.header-wrapper i.fa-bars').mouseleave(onHide);
+	var $bars = $('.header-wrapper i.fa-bars');
+	var $mobile = $('.header-wrapper .navi-wrap.mobile');
+	function onShow() {
+		if($mobile.css('display') === 'none'){
+			$('.header-wrapper').find('.mobile').css('display', 'flex');
+		}
+		else {
+			$('.header-wrapper').find('.mobile').css('display', 'none');
+		}
+	}
+/* 
+	function onHide(e) {
+		console.log(e.target);
+		$('.header-wrapper .navi-wrap.mobile').css('display', 'none');
+	} */
 </script>
 
