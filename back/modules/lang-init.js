@@ -25,6 +25,9 @@ module.exports = _lang => {
 						MSG_NULL		: '탈퇴 사유를 작성해 주세요.',
 					}
 				},
+				HEADER: {
+					LANG 					: ['한국어', 'English']
+				},
 				ALERT: {
 					WITHDRAWAL		: '회원 탈퇴가 처리되었습니다.',
 					SNS_MSG				: 'sns 회원은 탈퇴 후 다시 로그인 하시면 재가입 됩니다.',
@@ -131,7 +134,10 @@ module.exports = _lang => {
 						EMAIL_VALID	: 'Email format is incorrect',
 						EMAIL_TAKEN	: 'This is the email you are using. Please use a different email',
 						MSG_NULL	: 'Please write the reason for withdrawal.',
-					}
+					},
+				},
+				HEADER: {
+					LANG 					: ['Korean', '영어']
 				},
 				ALERT: {
 					WITHDRAWAL		: 'Membership cancellation has been processed.',
