@@ -57,9 +57,6 @@
 		$(this).find('.mobile-wrap').stop().slideDown();
 	}
 
-	console.log($(window).width())
-	console.log($(document).width())
-
 	function onHide(e) {
 		if($(document).width() <= 991) {
 			$(this).find('.mobile-wrap').stop().slideUp(function() {
