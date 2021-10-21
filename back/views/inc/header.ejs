@@ -1,7 +1,7 @@
 <header class="header-wrapper">
 	<h1 class="logo"><a href="/<%= LANG %>/book"><%= GLOBAL.LOGO %></a></h1>
-		<div class="slide-wrap" id="bars" >
-			<i class="fa fa-bars" ></i>
+		<div class="slide-wrap" id="bars">
+			<i class="fa fa-bars"></i>
 			<div class="mobile-wrap">
 				<nav class="navi-wrap">
 					<a href="/<%= LANG %>/book" class="navi"><%= GLOBAL.NAVI[1] %></a>
@@ -51,17 +51,22 @@
 	}
 	$('#bars').mouseenter(onShow);
 	$('#bars').mouseleave(onHide);
+	var $mobile = $('.header-wrapper .slide-wrap .mobile-wrap')
 
 	function onShow() {
 		$(this).find('.mobile-wrap').stop().slideDown();
 	}
 
-	function onHide() {
-		$(this).find('.mobile-wrap').stop().slideUp(function() {
-			$('.header-wrapper .slide-wrap .mobile-wrap').attr('style', '')
-		});
-		console.log($(this).next())
-	} 
+	console.log($(window).width())
+	console.log($(document).width())
+
+	function onHide(e) {
+		if($(document).width() <= 991) {
+			$(this).find('.mobile-wrap').stop().slideUp(function() {
+				$mobile.attr('style', '')})
+		}
+		else e.preventDefault();
+	}
 
 
 </script>
