@@ -35,7 +35,8 @@ module.exports = _lang => {
 				GLOBAL: {
 					LOGO					: '도서 관리 시스템',
 					TAB_TITLE			: 'Express 게시판',
-					NAVI					: ['도서 등록', '도서 리스트', '로그인', '로그아웃', '회원가입', '마이페이지', '회원정보수정', '도서리스트(Vue)', '회원탈퇴']
+					NAVI					: ['도서 등록', '도서 리스트', '로그인', '로그아웃', '회원가입', '마이페이지', '회원정보수정', '회원탈퇴'],
+					PRO						: ['Projects', '도서리스트(Vue)', '검색 사이트', '날씨 앱(Vue)']
 				},
 				LIST: {
 					TITLE 				: '도서 목록',
@@ -146,7 +147,8 @@ module.exports = _lang => {
 				GLOBAL: {
 					LOGO					: 'BOOK MANAGEMENT SYSTEM',
 					TAB_TITLE			: 'Express Board',
-					NAVI: 				['Book Register', 'Book List', 'Login', 'Logout', 'Join', 'Mypage', 'Edit User', 'Book List(Vue)', 'Withdrawal']
+					NAVI: 				['Book Register', 'Book List', 'Login', 'Logout', 'Join', 'Mypage', 'Edit User', 'Withdrawal'],
+					PRO						:['Projects','Book List(Vue)', 'Search Site', 'Weather(Vue)']					
 				},
 				LIST: {
 					TITLE 				: 'Book List',

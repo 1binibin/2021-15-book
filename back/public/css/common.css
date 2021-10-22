@@ -29,6 +29,12 @@ body {padding-bottom: 120px;}
 .header-wrapper .bt-navi .navi-sub .sub {width: 100%; display: block; padding: 1em; color: #f9f9f9;}
 .header-wrapper .bt-navi .navi-sub .sub:hover {background-color: #a34a77;}
 
+
+.header-wrapper .pro-wrap {position: relative; cursor: pointer;}
+.header-wrapper .pro-wrap .pro {position: absolute; width: 100%; background-color: #863b61; left: 0; top: 3em; display: none;}
+.header-wrapper .pro-wrap .pro .sub {width: 100%; display: block; padding: 1em; color: #f9f9f9;}
+.header-wrapper .pro-wrap .pro .sub:hover {background-color: #a34a77;}
+
 .title-wrapper {padding: 2em; background-color: #efefef;}
 .title-wrapper .title-wrap {font-size: 2em; margin-bottom: .5em;}
 .title-wrapper .desc-wrap {font-size: 1.25em; color: #555; margin-bottom: .75em;}
@@ -40,12 +46,17 @@ body {padding-bottom: 120px;}
 .header-wrapper .bars {display: none; margin-left: auto; padding: 1em; cursor: pointer;}
 .header-wrapper .bars:hover {background-color: mistyrose;}
 
+@media screen and (max-width: 1199px) {
+  .header-wrapper .pro-wrap .pro .sub {font-size: .875em;}
+}
 
 @media screen and (max-width: 991px) {
   .header-wrapper {position: relative;}
   .header-wrapper .bars {display: block;}
   .header-wrapper .navi-wrap {display: none; position: absolute; top: 100%; left: 0; background-color: darkslategrey; width: 100%; text-align: center;}
   .header-wrapper .navi-wrap .navi {width: 100%;}
+  
+  .header-wrapper .pro-wrap .pro .sub {font-size: 1em;}
 }
 
 @media screen and (max-width: 767px) {
@@ -55,4 +66,5 @@ body {padding-bottom: 120px;}
 
 @media screen and (max-width: 575px) {
   .header-wrapper .lang-wrap a {font-size: .75em;}
+  .header-wrapper .pro-wrap .pro {z-index: 999999;}
 }

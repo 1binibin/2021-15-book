@@ -12,7 +12,7 @@
 				<div class="navi-sub">
 					<a href="/<%= LANG %>/mypage/user" class="sub"><%= GLOBAL.NAVI[6] %></a>
 					<a href="/<%= LANG %>/auth/logout" class="sub"><%= GLOBAL.NAVI[3] %></a>
-					<a href="/<%= LANG %>/auth/withdrawal" class="sub"><%= GLOBAL.NAVI[8] %></a>
+					<a href="/<%= LANG %>/auth/withdrawal" class="sub"><%= GLOBAL.NAVI[7] %></a>
 				</div>
 			</div>
 			<!-- <a href="/<%= LANG %>/auth/logout" class="navi"><%= GLOBAL.NAVI[3] %></a> -->
@@ -20,7 +20,14 @@
 				<a href="/<%= LANG %>/auth/login" class="navi"><%= GLOBAL.NAVI[2] %></a>
 				<a href="/<%= LANG %>/auth/form" class="navi"><%= GLOBAL.NAVI[4] %></a>
 			<% } %>
-			<a href="https://binibin-vue-book.web.app" class="navi ex"><%= GLOBAL.NAVI[7] %></a>
+			<div class="navi pro-wrap">
+				<%= GLOBAL.PRO[0] %> 
+				<div class="pro">
+					<a href="https://binibin-vue-book.web.app" class="sub"><%= GLOBAL.PRO[1] %></a>
+					<a href="https://binibin-search.web.app" class="sub"><%= GLOBAL.PRO[2] %></a>
+					<a href="https://binibin-vue-weather.web.app" class="sub"><%= GLOBAL.PRO[3] %></a>
+				</div>
+			</div>
 	</nav>
 	<nav class="lang-wrap">
 		<a href="javascript:chgLang('ko');" class="navi <%= (LANG === 'ko' ? 'active': '') %>"><%= HEADER.LANG[0] %></a>
@@ -46,6 +53,15 @@
 	}
 	function onNaviLeave() {
 		$(this).find('.navi-sub').stop().slideUp();
+	}
+
+	$('.header-wrapper .pro-wrap').mouseenter(onProEnter);
+	$('.header-wrapper .pro-wrap').mouseleave(onProLeave);
+	function onProEnter() {
+		$(this).find('.pro').stop().slideDown();
+	}
+	function onProLeave() {
+		$(this).find('.pro').stop().slideUp();
 	}
 
 	$('.bars').click(onShow)
