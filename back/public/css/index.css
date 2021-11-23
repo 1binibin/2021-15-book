@@ -17,30 +17,6 @@ h1 {
   text-align: center;
   margin: 3em;
 }
-/*** navi ***************/
-.navi-wrapper {
-  width: 100%;
-  position: fixed;
-  display: flex;
-  align-items: center;
-  background-color: white;
-  opacity: 0.75;
-}
-.navi-wrapper .navi {
-  padding: 1.5em;
-  font-size: 1em;
-  cursor: pointer;
-}
-.navi-wrapper .navi .fa {
-  line-height: 0;
-}
-.navi-wrapper .navi:hover {
-  background-color: #bab2b5;
-}
-.navi-wrapper .icon-wrapper {
-  margin-left: auto;
-}
-
 /*** home ***************/
 .home-wrapper {
   position: relative;
@@ -59,10 +35,38 @@ h1 {
   color: black;
   font-size: 2em;
 }
+/*** navi ***************/
+.navi-wrapper {
+  width: 100%;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  color: white;
+  opacity: 0.75;
+}
+.active {
+  background-color: #fff;
+  color: #000;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+}
+.navi-wrapper .navi {
+  padding: 1.5em;
+  font-size: 1em;
+  cursor: pointer;
+}
+.navi-wrapper .navi .fa {
+  line-height: 0;
+}
+.navi-wrapper .navi:hover {
+  background-color: #bab2b5;
+}
+.navi-wrapper .icon-wrapper {
+  margin-left: auto;
+}
 
 /*** about ***************/
 .about-wrapper {
-  margin: 3em;
+  margin: auto;
   width: 100%;
   padding: 2em;
 }
@@ -97,6 +101,9 @@ h1 {
 .skill-all {
   display: flex;
   flex-direction: column;
+  margin: auto;
+  width: 100%;
+  padding: 2em;
 }
 .skill-wrapper {
   display: flex;
@@ -111,7 +118,6 @@ h1 {
   margin-right: 0.5em;
   width: 215px;
   height: 210px;
-  border: 2px solid red;
   opacity: 0.25em;
 }
 .js .skill-img {
@@ -124,15 +130,48 @@ h1 {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  opacity: 0.25;
+  opacity: 0.35;
 }
 .js .skill-img:hover {
   transition: all 0.3s ease-in-out;
   opacity: 0.5;
 }
 
+.js .cando {
+  padding: 0.5em;
+  text-align: left;
+}
+
 .js .skill {
   padding: 0.5em;
   font-size: 1.5em;
   background-color: darkseagreen;
+}
+/*** skill ***************/
+.project-wrapper {
+  margin: auto;
+  width: 100%;
+  padding: 2em;
+}
+.project-wrapper .project {
+  display: flex;
+  justify-content: space-between;
+  padding: 1em;
+}
+.project-wrapper .img {
+  width: 49%;
+  border: 1px solid red;
+}
+.pro-content {
+  width: 59%;
+  border: 1px solid red;
+}
+
+.p-title {
+  font-size: 2em;
+  margin-bottom: 0.5em;
+}
+
+.content p {
+  font-size: 1.25em;
 }

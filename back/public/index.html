@@ -11,12 +11,12 @@
     <link rel="stylesheet" href="/css/base.css" />
     <link rel="stylesheet" href="/css/index.css" />
     <script src="/js/jquery.min.js"></script>
-    <script src="/js/aos.js"></script>
+    <!-- <script src="/js/aos.js"></script> -->
   </head>
   <body>
     <!-- main-wrapper -->
-    <main class="home-wrapper">
-      <header class="navi-wrapper">
+    <section class="home-wrapper">
+      <div class="navi-wrapper">
         <div class="navi">Home</div>
         <div class="navi">
           <i class="fa fa-user"></i>
@@ -34,13 +34,13 @@
           <i class="fa fa-envelope"></i>
           Contact
         </div>
-      </header>
+      </div>
       <!-- navi-wrapper -->
       <div class="logo">
         <h2>남원빈 포트폴리오</h2>
         <p>BackEnd 개발자</p>
       </div>
-    </main>
+    </section>
     <!-- about-wrapper -->
     <div class="title">
       <h1 class="fa-2x">About Me</h1>
@@ -74,51 +74,156 @@
       <h1 class="fa-2x">Skills</h1>
       <span class="bullet"></span>
     </div>
-    <section class="skill-all">
-      <div class="skill-wrapper container mb-2">
+    <section class="skill-all container">
+      <div class="skill-wrapper mb-2">
         <div class="js">
           <p class="skill">Node.js</p>
           <div class="skill-img" style="background-image: url('../img/node.png')"></div>
-          <p>Express</p>
+          <div class="cando">
+            <p>Express의 이해</p>
+            <p>RESTful 구현</p>
+            <p>MySQL 과 Sequelize</p>
+          </div>
         </div>
         <div class="js">
           <p class="skill">JavaScript</p>
           <div class="skill-img" style="background-image: url('../img/javascript.png')"></div>
-          <p>Express</p>
+          <div class="cando">
+            <p>Express</p>
+          </div>
         </div>
         <div class="js">
           <p class="skill">React</p>
           <div class="skill-img" style="background-image: url('../img/react.png')"></div>
-          <p>Express</p>
+          <div class="cando">
+            <p>Express</p>
+          </div>
         </div>
         <div class="js">
           <p class="skill">Vue.js</p>
           <div class="skill-img" style="background-image: url('../img/vue.png')"></div>
-          <p>Express</p>
+          <div class="cando">
+            <p>Express</p>
+          </div>
         </div>
       </div>
       <div class="skill-wrapper container">
         <div class="js">
           <p class="skill">HTML5</p>
           <div class="skill-img" style="background-image: url('../img/html.png')"></div>
-          <p>Express</p>
+          <div class="cando">
+            <p>Express</p>
+          </div>
         </div>
         <div class="js">
           <p class="skill">CSS3</p>
           <div class="skill-img" style="background-image: url('../img/css.png')"></div>
-          <p>Express</p>
+          <div class="cando">
+            <p>Express</p>
+          </div>
         </div>
         <div class="js">
           <p class="skill">SCSS</p>
           <div class="skill-img" style="background-image: url('../img/scss.png')"></div>
-          <p>Express</p>
+          <div class="cando">
+            <p>Express</p>
+          </div>
         </div>
       </div>
     </section>
+    <!-- project -->
+    <div class="title">
+      <h1 class="fa-2x">Project</h1>
+      <span class="bullet"></span>
+    </div>
     <section class="project-wrapper container">
-      <div>
+      <div class="project">
         <div class="img">
-          <img src="" alt="" />
+          <img src="/img/book.jpg" alt="" class="mw-100" />
+        </div>
+        <div class="pro-content">
+          <div class="p-title">1.도서 관리 시스템</div>
+          <div class="content">
+            <p>MVC패턴, CRUD, RESTful, API통신, JWT</p>
+            <p>Node.js, EJS, Express, MySQL</p>
+          </div>
+          <div class="go-view">
+            <a href="#">Demo</a>
+            <a href="#">자세히 보기</a>
+            <a href="#">소스 보기</a>
+          </div>
+        </div>
+      </div>
+      <div class="project">
+        <div class="pro-content">
+          <div class="p-title">2.도서 관리 시스템(Vue.js)</div>
+          <div class="content">
+            <p>Vue.js로 만든 도서관리 시스템</p>
+            <p>API통신, JWT, Cookie, Session</p>
+            <p>Vue.js, Vuex</p>
+          </div>
+          <div class="go-view">
+            <a href="#">Demo</a>
+            <a href="#">자세히 보기</a>
+            <a href="#">소스 보기</a>
+          </div>
+        </div>
+        <div class="img">
+          <img src="/img/book-vue.jpg" alt="" class="mw-100" />
+        </div>
+      </div>
+      <div class="project">
+        <div class="img">
+          <img src="/img/book-vue.jpg" alt="" class="mw-100" />
+        </div>
+        <div class="pro-content">
+          <div class="p-title">3.검색 사이트</div>
+          <div class="content">
+            <p>Kakao Api를 이용한 검색사이트</p>
+            <p>Ajax</p>
+            <p>Postman</p>
+          </div>
+          <div class="go-view">
+            <a href="#">Demo</a>
+            <a href="#">자세히 보기</a>
+            <a href="#">소스 보기</a>
+          </div>
+        </div>
+      </div>
+      <div class="project">
+        <div class="pro-content">
+          <div class="p-title">4.날씨 앱 (Vue.js)</div>
+          <div class="content">
+            <p>Vue.js로 만든 날씨앱</p>
+            <p></p>
+            <p>Vue.js, Vuex</p>
+          </div>
+          <div class="go-view">
+            <a href="#">Demo</a>
+            <a href="#">자세히 보기</a>
+            <a href="#">소스 보기</a>
+          </div>
+        </div>
+        <div class="img">
+          <img src="/img/book-vue.jpg" alt="" class="mw-100" />
+        </div>
+      </div>
+      <div class="project">
+        <div class="img">
+          <img src="/img/book-vue.jpg" alt="" class="mw-100" />
+        </div>
+        <div class="pro-content">
+          <div class="p-title">5.쇼핑몰(React)</div>
+          <div class="content">
+            <p>React로 만든 쇼핑몰</p>
+            <p></p>
+            <p>React, Redux, Node.js, Sequelize</p>
+          </div>
+          <div class="go-view">
+            <a href="#">Demo</a>
+            <a href="#">자세히 보기</a>
+            <a href="#">소스 보기</a>
+          </div>
         </div>
       </div>
     </section>
