@@ -1,0 +1,138 @@
+/*** common ***************/
+h1 {
+  font-size: 2em;
+}
+.active {
+  background-color: cornsilk;
+}
+
+.bullet {
+  display: inline-block;
+  width: 50px;
+  height: 4px;
+  background-color: #47333b;
+  margin: 0.75em auto 0.75em auto;
+}
+.title {
+  text-align: center;
+  margin: 3em;
+}
+/*** navi ***************/
+.navi-wrapper {
+  width: 100%;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  background-color: white;
+  opacity: 0.75;
+}
+.navi-wrapper .navi {
+  padding: 1.5em;
+  font-size: 1em;
+  cursor: pointer;
+}
+.navi-wrapper .navi .fa {
+  line-height: 0;
+}
+.navi-wrapper .navi:hover {
+  background-color: #bab2b5;
+}
+.navi-wrapper .icon-wrapper {
+  margin-left: auto;
+}
+
+/*** home ***************/
+.home-wrapper {
+  position: relative;
+  height: 100vh;
+  background-image: url('../img/main_.jpg');
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  opacity: 0.85;
+}
+.home-wrapper .logo {
+  position: absolute;
+  top: 50%;
+  left: 40%;
+  text-align: center;
+  color: black;
+  font-size: 2em;
+}
+
+/*** about ***************/
+.about-wrapper {
+  margin: 3em;
+  width: 100%;
+  padding: 2em;
+}
+.about {
+  display: flex;
+  vertical-align: center;
+  align-items: center;
+}
+.about .selfi {
+  width: 50%;
+}
+.about .me {
+  width: 50%;
+  border: 1px solid slateblue;
+}
+
+.about .me .info {
+  display: flex;
+  flex-direction: column;
+}
+.about .me .info i {
+  margin-bottom: 1.5em;
+}
+.about .me .summary {
+  /* About me 설명란 */
+}
+.about .me .summary p {
+  font-size: 1.5em;
+}
+
+/*** skill ***************/
+.skill-all {
+  display: flex;
+  flex-direction: column;
+}
+.skill-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.js {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1em;
+  text-align: center;
+  margin-right: 0.5em;
+  width: 215px;
+  height: 210px;
+  border: 2px solid red;
+  opacity: 0.25em;
+}
+.js .skill-img {
+  position: absolute;
+  top: 27%;
+  left: 10%;
+  width: 85%;
+  height: 60%;
+  z-index: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.25;
+}
+.js .skill-img:hover {
+  transition: all 0.3s ease-in-out;
+  opacity: 0.5;
+}
+
+.js .skill {
+  padding: 0.5em;
+  font-size: 1.5em;
+  background-color: darkseagreen;
+}

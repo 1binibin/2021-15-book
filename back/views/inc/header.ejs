@@ -1,79 +1,65 @@
 <header class="header-wrapper">
-	<h1 class="logo"><a href="/<%= LANG %>/book"><%= GLOBAL.LOGO %></a></h1>
-	<div class="bars">
-		<i class="fa fa-bars"></i>
-	</div>
-	<nav class="navi-wrap">
-		<a href="/<%= LANG %>/book" class="navi"><%= GLOBAL.NAVI[1] %></a>
-		<% if(user) { %>
-			<a href="/<%= LANG %>/book/form" class="navi"><%= GLOBAL.NAVI[0] %></a>
-			<div class="navi bt-navi">
-				<%= GLOBAL.NAVI[5] %>
-				<div class="navi-sub">
-					<a href="/<%= LANG %>/mypage/user" class="sub"><%= GLOBAL.NAVI[6] %></a>
-					<a href="/<%= LANG %>/auth/logout" class="sub"><%= GLOBAL.NAVI[3] %></a>
-					<a href="/<%= LANG %>/auth/withdrawal" class="sub"><%= GLOBAL.NAVI[7] %></a>
-				</div>
-			</div>
-			<!-- <a href="/<%= LANG %>/auth/logout" class="navi"><%= GLOBAL.NAVI[3] %></a> -->
-			<% } else { %>
-				<a href="/<%= LANG %>/auth/login" class="navi"><%= GLOBAL.NAVI[2] %></a>
-				<a href="/<%= LANG %>/auth/form" class="navi"><%= GLOBAL.NAVI[4] %></a>
-			<% } %>
-			<div class="navi pro-wrap">
-				<%= GLOBAL.PRO[0] %> 
-				<div class="pro">
-					<a href="https://binibin-vue-book.web.app" class="sub"><%= GLOBAL.PRO[1] %></a>
-					<a href="https://binibin-search.web.app" class="sub"><%= GLOBAL.PRO[2] %></a>
-					<a href="https://binibin-vue-weather.web.app" class="sub"><%= GLOBAL.PRO[3] %></a>
-				</div>
-			</div>
-	</nav>
-	<nav class="lang-wrap">
-		<a href="javascript:chgLang('ko');" class="navi <%= (LANG === 'ko' ? 'active': '') %>"><%= HEADER.LANG[0] %></a>
-		<span> | </span>
-		<a href="javascript:chgLang('en');" class="navi <%= (LANG === 'en' ? 'active': '') %>"><%= HEADER.LANG[1] %></a>
-	</nav>
+  <h1 class="logo"><a href="/<%= LANG %>/book"><%= GLOBAL.LOGO %></a></h1>
+  <div class="bars">
+    <i class="fa fa-bars"></i>
+  </div>
+  <nav class="navi-wrap">
+    <a href="/<%= LANG %>/book" class="navi"><%= GLOBAL.NAVI[1] %></a>
+    <% if(user) { %>
+    <a href="/<%= LANG %>/book/form" class="navi"><%= GLOBAL.NAVI[0] %></a>
+    <div class="navi bt-navi">
+      <%= GLOBAL.NAVI[5] %>
+      <div class="navi-sub">
+        <a href="/<%= LANG %>/mypage/user" class="sub"><%= GLOBAL.NAVI[6] %></a>
+        <a href="/<%= LANG %>/auth/logout" class="sub"><%= GLOBAL.NAVI[3] %></a>
+        <a href="/<%= LANG %>/auth/withdrawal" class="sub"><%= GLOBAL.NAVI[7] %></a>
+      </div>
+    </div>
+    <!-- <a href="/<%= LANG %>/auth/logout" class="navi"><%= GLOBAL.NAVI[3] %></a> -->
+    <% } else { %>
+    <a href="/<%= LANG %>/auth/login" class="navi"><%= GLOBAL.NAVI[2] %></a>
+    <a href="/<%= LANG %>/auth/form" class="navi"><%= GLOBAL.NAVI[4] %></a>
+    <% } %>
+  </nav>
+  <nav class="lang-wrap">
+    <a href="javascript:chgLang('ko');" class="navi <%= (LANG === 'ko' ? 'active': '') %>"><%= HEADER.LANG[0] %></a>
+    <span> | </span>
+    <a href="javascript:chgLang('en');" class="navi <%= (LANG === 'en' ? 'active': '') %>"><%= HEADER.LANG[1] %></a>
+  </nav>
 </header>
 <script>
-	function chgLang(_lang) {
-		var protocol = location.protocol;
-		var host = location.host;
-		var pathname = location.pathname;
-		var path = pathname.split('/')
-		location.href = protocol + '//' + host + ((path[1] === 'ko' || path[1] === 'en')
-			? pathname.replace('/'+path[1]+'/', '/'+_lang+'/')
-			: '/' + _lang + pathname);
-	}
+  function chgLang(_lang) {
+    var protocol = location.protocol;
+    var host = location.host;
+    var pathname = location.pathname;
+    var path = pathname.split('/');
+    location.href =
+      protocol +
+      '//' +
+      host +
+      (path[1] === 'ko' || path[1] === 'en'
+        ? pathname.replace('/' + path[1] + '/', '/' + _lang + '/')
+        : '/' + _lang + pathname);
+  }
 
-	$('.header-wrapper .bt-navi').mouseenter(onNaviEnter);
-	$('.header-wrapper .bt-navi').mouseleave(onNaviLeave);
-	function onNaviEnter() {
-		$(this).find('.navi-sub').stop().slideDown();
-	}
-	function onNaviLeave() {
-		$(this).find('.navi-sub').stop().slideUp();
-	}
+  $('.header-wrapper .bt-navi').mouseenter(onNaviEnter);
+  $('.header-wrapper .bt-navi').mouseleave(onNaviLeave);
+  function onNaviEnter() {
+    $(this).find('.navi-sub').stop().slideDown();
+  }
+  function onNaviLeave() {
+    $(this).find('.navi-sub').stop().slideUp();
+  }
 
-	$('.header-wrapper .pro-wrap').mouseenter(onProEnter);
-	$('.header-wrapper .pro-wrap').mouseleave(onProLeave);
-	function onProEnter() {
-		$(this).find('.pro').stop().slideDown();
-	}
-	function onProLeave() {
-		$(this).find('.pro').stop().slideUp();
-	}
+  $('.bars').click(onShow);
 
-	$('.bars').click(onShow)
+  function onShow() {
+    $('.navi-wrap').css('display', 'flex');
+    $('.bars').off('click').click(onHide);
+  }
 
-	function onShow() {
-		$('.navi-wrap').css('display', 'flex')
-		$('.bars').off('click').click(onHide)
-	}
-
-	function onHide() {
-		$('.navi-wrap').attr('style', '');
-		$('.bars').off('click').click(onShow)
-	}
+  function onHide() {
+    $('.navi-wrap').attr('style', '');
+    $('.bars').off('click').click(onShow);
+  }
 </script>
-
