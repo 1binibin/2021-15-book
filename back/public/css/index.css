@@ -14,10 +14,6 @@ a:hover {
   color: inherit;
 }
 
-.active {
-  background-color: cornsilk;
-}
-
 .bullet {
   display: inline-block;
   width: 50px;
@@ -69,10 +65,12 @@ a:hover {
   align-items: center;
   color: white;
   opacity: 0.75;
+  z-index: 999;
 }
 .active {
-  background-color: #fff;
+  background-color: white;
   color: #000;
+  z-index: 9999;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
 }
 .navi-wrapper .navi {
@@ -219,14 +217,14 @@ ion-icon {
 .go-view {
   padding: 1em;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   vertical-align: center;
   text-align: center;
 }
 
 .go-view .go {
   border: 1.5px solid #fe4a49;
-  padding: 1.5em;
+  padding: 1.5em 2em;
   cursor: pointer;
 }
 .go-view .go:hover {
@@ -258,4 +256,19 @@ ion-icon {
   padding: 1em;
   display: flex;
   flex-direction: column;
+}
+
+#btTop {
+  padding: 1em;
+  position: fixed;
+  top: 80%;
+  right: 0;
+  color: #fe4a49;
+  font-size: 1.5em;
+  cursor: pointer;
+  display: none;
+}
+#btTop:hover {
+  background-color: #dedede;
+  transition: all 0.3s ease-in-out;
 }
