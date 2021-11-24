@@ -1,7 +1,19 @@
 /*** common ***************/
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500&display=swap');
+
+html,
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+}
 h1 {
   font-size: 2em;
 }
+
+a:hover {
+  text-decoration: none;
+  color: inherit;
+}
+
 .active {
   background-color: cornsilk;
 }
@@ -13,6 +25,19 @@ h1 {
   background-color: #47333b;
   margin: 0.75em auto 0.75em auto;
 }
+
+.left-bullet {
+  display: inline-block;
+  width: 4px;
+  height: 16px;
+  background-color: mediumaquamarine;
+  margin-right: 8px;
+}
+
+.num {
+  color: #fe4a49;
+}
+
 .title {
   text-align: center;
   margin: 3em;
@@ -25,7 +50,7 @@ h1 {
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
-  opacity: 0.85;
+  opacity: 0.95;
 }
 .home-wrapper .logo {
   position: absolute;
@@ -34,6 +59,7 @@ h1 {
   text-align: center;
   color: black;
   font-size: 2em;
+  font-weight: bold;
 }
 /*** navi ***************/
 .navi-wrapper {
@@ -63,12 +89,13 @@ h1 {
 .navi-wrapper .icon-wrapper {
   margin-left: auto;
 }
-
 /*** about ***************/
+/* 
 .about-wrapper {
   margin: auto;
   width: 100%;
   padding: 2em;
+  background-color: #f4f9f9;
 }
 .about {
   display: flex;
@@ -79,7 +106,9 @@ h1 {
   width: 50%;
 }
 .about .me {
+  margin-left: 0.5em;
   width: 50%;
+  padding: 1.5em;
   border: 1px solid slateblue;
 }
 
@@ -91,87 +120,142 @@ h1 {
   margin-bottom: 1.5em;
 }
 .about .me .summary {
-  /* About me 설명란 */
+  About me 설명란
 }
 .about .me .summary p {
   font-size: 1.5em;
 }
-
-/*** skill ***************/
-.skill-all {
-  display: flex;
-  flex-direction: column;
-  margin: auto;
-  width: 100%;
-  padding: 2em;
+*/
+ion-icon {
+  color: red;
 }
+/*** skill ***************/
 .skill-wrapper {
+  background-color: #f4f9f9;
+  padding: 1.5em;
   display: flex;
   justify-content: space-between;
 }
-
-.js {
-  position: relative;
+.skill-wrapper .front {
+  width: 48%;
+  margin: 1em;
+  padding: 1.5em;
+}
+.skill-wrapper .back {
+  width: 48%;
+  margin: 1em;
+  padding: 1.5em;
+}
+.skill-wrapper .skills {
+  display: flex;
+  flex-wrap: wrap;
   overflow: hidden;
-  border-radius: 1em;
-  text-align: center;
-  margin-right: 0.5em;
-  width: 215px;
-  height: 210px;
-  opacity: 0.25em;
+  justify-content: space-around;
 }
-.js .skill-img {
-  position: absolute;
-  top: 27%;
-  left: 10%;
-  width: 85%;
-  height: 60%;
-  z-index: 0;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  opacity: 0.35;
-}
-.js .skill-img:hover {
-  transition: all 0.3s ease-in-out;
-  opacity: 0.5;
-}
-
-.js .cando {
+.skill-wrapper .skill {
+  border: 1px solid #98ddca;
+  display: flex;
+  align-items: center;
+  margin: 2%;
   padding: 0.5em;
-  text-align: left;
+  width: 46%;
 }
-
-.js .skill {
-  padding: 0.5em;
+.skill-wrapper .name {
+  margin-left: 1em;
   font-size: 1.5em;
-  background-color: darkseagreen;
+  font-weight: bold;
 }
-/*** skill ***************/
+
+.skill-wrapper h1 {
+  text-align: center;
+  margin-bottom: 1.5em;
+}
+
+.skill-wrapper .front .img {
+  width: 60px;
+}
+.skill-wrapper .back .img {
+  width: 60px;
+}
+
+/*** Project ***************/
 .project-wrapper {
   margin: auto;
   width: 100%;
   padding: 2em;
 }
 .project-wrapper .project {
+  background-color: #f1f9f9;
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  justify-content: space-around;
   padding: 1em;
+  margin-bottom: 1em;
 }
-.project-wrapper .img {
-  width: 49%;
-  border: 1px solid red;
-}
-.pro-content {
-  width: 59%;
-  border: 1px solid red;
+
+.prj-content {
+  border: 1px solid #dedede;
+  /* background-color: #f4f9f9; */
+  padding: 3em;
+  width: 48%;
+  margin: 1%;
 }
 
 .p-title {
   font-size: 2em;
   margin-bottom: 0.5em;
+  color: #626262;
+}
+.content {
+  padding: 1em;
 }
 
-.content p {
-  font-size: 1.25em;
+.prj-content .content p {
+  font-size: 1em;
+  margin-bottom: 1em;
+  color: #a1a1a1;
+}
+
+.go-view {
+  padding: 1em;
+  display: flex;
+  justify-content: space-between;
+  vertical-align: center;
+  text-align: center;
+}
+
+.go-view .go {
+  border: 1.5px solid #fe4a49;
+  padding: 1.5em;
+  cursor: pointer;
+}
+.go-view .go:hover {
+  background-color: #fe4a49;
+  color: white;
+  transition: all 0.3s ease-in-out;
+}
+/*** Footer *****************/
+.footer-wrapper {
+  background-color: black;
+  height: 20%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.footer-wrapper .contact-wrap {
+  text-align: left;
+  padding: 5em;
+  display: flex;
+  align-items: center;
+  margin: auto;
+  color: white;
+}
+
+.contact-wrap i {
+  display: inline-block;
+}
+.contact {
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
 }

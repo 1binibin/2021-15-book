@@ -11,17 +11,13 @@
     <link rel="stylesheet" href="/css/base.css" />
     <link rel="stylesheet" href="/css/index.css" />
     <script src="/js/jquery.min.js"></script>
-    <!-- <script src="/js/aos.js"></script> -->
+    <script src="/js/aos.js"></script>
   </head>
   <body>
     <!-- main-wrapper -->
     <section class="home-wrapper">
       <div class="navi-wrapper">
         <div class="navi">Home</div>
-        <div class="navi">
-          <i class="fa fa-user"></i>
-          About
-        </div>
         <div class="navi">
           <i class="fa fa-th"></i>
           Project
@@ -37,178 +33,189 @@
       </div>
       <!-- navi-wrapper -->
       <div class="logo">
-        <h2>남원빈 포트폴리오</h2>
-        <p>BackEnd 개발자</p>
+        <h2>Wonbin's Portfolio</h2>
       </div>
     </section>
-    <!-- about-wrapper -->
-    <div class="title">
-      <h1 class="fa-2x">About Me</h1>
-      <span class="bullet"></span>
-    </div>
-    <div class="about-wrapper container">
-      <div class="about mb-1">
-        <div class="selfi">
-          <img src="/img/곰.jpg" alt="selfi" class="mw-100" />
-        </div>
-        <div class="me">
-          <div class="info">
-            <i class="fa fa-phone"> 010-9476-8249</i>
-            <i class="fa fa-envelope"> namwonbin@gmail.com</i>
-            <i class="fab fa-github">
-              <strong><a href="https://github.com/1binibin">https://github.com/1binibin</a></strong></i
-            >
-          </div>
-          <div class="summary">
-            <p>
-              안녕하세요~ Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam molestiae tempora quas
-              aspernatur quibusdam numquam ipsam molestias error, incidunt optio tenetur corrupti rerum fugiat dolorum?
-              Aliquid assumenda quod odio nulla!
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
+    
     <!-- skill -->
     <div class="title">
-      <h1 class="fa-2x">Skills</h1>
-      <span class="bullet"></span>
+      <h1 class="fa-2x" data-aos="zoom-in">Skills</h1>
+      <span class="bullet"data-aos="zoom-in"></span>
     </div>
-    <section class="skill-all container">
-      <div class="skill-wrapper mb-2">
-        <div class="js">
-          <p class="skill">Node.js</p>
-          <div class="skill-img" style="background-image: url('../img/node.png')"></div>
-          <div class="cando">
-            <p>Express의 이해</p>
-            <p>RESTful 구현</p>
-            <p>MySQL 과 Sequelize</p>
+    <section class="skill-wrapper container">
+      <div class="front">
+        
+        <h1 data-aos="fade-down"><span class="left-bullet"></span>Front-end</h1>
+        
+        <div class="skills"  data-aos="fade-right" data-aos-delay="200">
+          <div class="skill">
+            <div class="img">
+              <img src="/img/html.png" class="mw-100">
+            </div>
+            <div class="name">HTML</div>
           </div>
-        </div>
-        <div class="js">
-          <p class="skill">JavaScript</p>
-          <div class="skill-img" style="background-image: url('../img/javascript.png')"></div>
-          <div class="cando">
-            <p>Express</p>
+          <div class="skill">
+            <div class="img">
+              <img src="/img/css.png" class="mw-100">
+            </div>
+            <div class="name">CSS</div>
           </div>
-        </div>
-        <div class="js">
-          <p class="skill">React</p>
-          <div class="skill-img" style="background-image: url('../img/react.png')"></div>
-          <div class="cando">
-            <p>Express</p>
+          <div class="skill">
+            <div class="img">
+              <img src="/img/scss.png" class="mw-100">
+            </div>
+            <div class="name">SASS</div>
           </div>
-        </div>
-        <div class="js">
-          <p class="skill">Vue.js</p>
-          <div class="skill-img" style="background-image: url('../img/vue.png')"></div>
-          <div class="cando">
-            <p>Express</p>
+          <div class="skill">
+            <div class="img">
+              <img src="/img/javascript.png" class="mw-100">
+            </div>
+            <div class="name">Javascript (ES6+)</div>
+          </div>
+          <div class="skill">
+            <div class="img">
+              <img src="/img/jquery.png" class="mw-100">
+            </div>
+            <div class="name">jQuery</div>
+          </div>
+          <div class="skill">
+            <div class="img">
+              <img src="/img/vue.png" class="mw-100">
+            </div>
+            <div class="name">Vue.js (Vuex)</div>
+          </div>
+          <div class="skill">
+            <div class="img">
+              <img src="/img/react.png" class="mw-100">
+            </div>
+            <div class="name">React</div>
+          </div>
+          <div class="skill">
+            <div class="img">
+              <img src="/img/redux.png" class="mw-100">
+            </div>
+            <div class="name">Redux</div>
           </div>
         </div>
       </div>
-      <div class="skill-wrapper container">
-        <div class="js">
-          <p class="skill">HTML5</p>
-          <div class="skill-img" style="background-image: url('../img/html.png')"></div>
-          <div class="cando">
-            <p>Express</p>
+      <div class="back">
+        <h1 data-aos="fade-down"><span class="left-bullet"></span>Back-end</h1>
+        <div class="skills" data-aos="fade-left" data-aos-delay="200">
+          <div class="skill">
+            <div class="img">
+              <img src="/img/node.png" class="mw-100">
+            </div>
+            <div class="name">Node.js</div>
           </div>
-        </div>
-        <div class="js">
-          <p class="skill">CSS3</p>
-          <div class="skill-img" style="background-image: url('../img/css.png')"></div>
-          <div class="cando">
-            <p>Express</p>
+          <div class="skill">
+            <div class="img">
+              <img src="/img/express.png" class="mw-100">
+            </div>
+            <div class="name">Express.js</div>
           </div>
-        </div>
-        <div class="js">
-          <p class="skill">SCSS</p>
-          <div class="skill-img" style="background-image: url('../img/scss.png')"></div>
-          <div class="cando">
-            <p>Express</p>
+          <div class="skill">
+            <div class="img">
+              <img src="/img/mysql.png" class="mw-100">
+            </div>
+            <div class="name">MySQL</div>
           </div>
+          <div class="skill">
+            <div class="img">
+              <img src="/img/sequelize.png" class="mw-100">
+            </div>
+            <div class="name">Sequelize</div>
+          </div>
+          <div class="skill">
+            <div class="img">
+              <img src="/img/jwt_.png" class="mw-100">
+            </div>
+            <div class="name">JWT</div>
+          </div>
+          <div class="skill">
+            <div class="img">
+              <img src="/img/passport.png" class="mw-100">
+            </div>
+            <div class="name">Passport</div>
+          </div>
+          <div class="skill">
+            <div class="img">
+              <img src="/img/dotenv.png" class="mw-100">
+            </div>
+            <div class="name">.env</div>
+          </div>
+          <div class="skill">
+            <div class="img">
+              <img src="/img/ejs.png" class="mw-100">
+            </div>
+            <div class="name">EJS</div>
+          </div>
+          
         </div>
+      </div>
       </div>
     </section>
+      
     <!-- project -->
     <div class="title">
-      <h1 class="fa-2x">Project</h1>
-      <span class="bullet"></span>
+      <h1 class="fa-2x" data-aos="flip-up">Project</h1>
+      <span class="bullet" data-aos="flip-up"></span>
     </div>
     <section class="project-wrapper container">
       <div class="project">
-        <div class="img">
-          <img src="/img/book.jpg" alt="" class="mw-100" />
-        </div>
-        <div class="pro-content">
-          <div class="p-title">1.도서 관리 시스템</div>
+        <div class="prj-content" data-aos="fade-right" data-aos-delay="200">
+          <div class="p-title">
+            <span class="num">01 </span> 도서 관리 시스템
+          </div>
           <div class="content">
-            <p>MVC패턴, CRUD, RESTful, API통신, JWT</p>
-            <p>Node.js, EJS, Express, MySQL</p>
+            <p>- SNS 회원가입, Api key 생성</p>
+            <p>- MVC, CRUD, RESTful, JWT, Paging</p>
+            <p>- Node.js, EJS, Express, MySQL</p>
           </div>
           <div class="go-view">
-            <a href="#">Demo</a>
-            <a href="#">자세히 보기</a>
-            <a href="#">소스 보기</a>
+            <a href="https://1bin.kr/book" class="go" target="_blank">Demo</a>
+            <a href="#" class="go" target="_blank">자세히 보기</a>
+            <a href="https://github.com/1binibin/2021-15-sql.git" class="go" target="_blank">Github</a>
+          </div>
+        </div>
+        <div class="prj-content" data-aos="fade-left" data-aos-delay="200">
+          <div class="p-title"><span class="num">02 </span> 도서 관리 시스템(Vue.js)</div>
+          <div class="content">
+            <p>- Api key를 통한 데이터 전송</p>
+            <p>- Infinity Scroll, API key, Paging</p>
+            <p>- Vue.js, Vuex</p>
+          </div>
+          <div class="go-view">
+            <a href="https://binibin-vue-book.web.app/" class="go" target="_blank">Demo</a>
+            <a href="#" class="go" target="_blank">자세히 보기</a>
+            <a href="https://github.com/1binibin/24-vue-book.git" class="go" target="_blank">Github</a>
+          </div>
+        </div>
+        <div class="prj-content" data-aos="flip-up" data-aos-delay="150">
+          <div class="p-title"><span class="num">03 </span> ALL <i class="fa fa-search" style="color: blue;"></i> </div>
+          <div class="content">
+            <p>- Kakao Api를 이용한 검색사이트</p>
+            <p>- Ajax, Postman</p>
+          </div>
+          <div class="go-view">
+            <a href="https://binibin-search.web.app/" class="go" target="_blank">Demo</a>
+            <a href="" class="go" target="_blank">자세히 보기</a>
+            <a href="https://github.com/1binibin/2021-11-ajax/blob/master/public/js/02.search.js" class="go" target="_blank">Github</a>
+          </div>
+        </div>
+        <div class="prj-content" data-aos="flip-up" data-aos-delay="150">
+          <div class="p-title"><span class="num">04 </span> 일기 예보 <i class="fa fa-bolt" style="color: grey;"></i> </div>
+          <div class="content">
+            <p>- Vue.js로 만든 날씨앱</p>
+            <p>- Vue.js, Vuex</p>
+          </div>
+          <div class="go-view">
+            <a href="https://binibin-vue-weather.web.app/" class="go" target="_blank">Demo</a>
+            <a href="#" class="go" target="_blank">자세히 보기</a>
+            <a href="https://github.com/1binibin/2021-23-vue-weather.git" class="go" target="_blank">Github</a>
           </div>
         </div>
       </div>
-      <div class="project">
-        <div class="pro-content">
-          <div class="p-title">2.도서 관리 시스템(Vue.js)</div>
-          <div class="content">
-            <p>Vue.js로 만든 도서관리 시스템</p>
-            <p>API통신, JWT, Cookie, Session</p>
-            <p>Vue.js, Vuex</p>
-          </div>
-          <div class="go-view">
-            <a href="#">Demo</a>
-            <a href="#">자세히 보기</a>
-            <a href="#">소스 보기</a>
-          </div>
-        </div>
-        <div class="img">
-          <img src="/img/book-vue.jpg" alt="" class="mw-100" />
-        </div>
-      </div>
-      <div class="project">
-        <div class="img">
-          <img src="/img/book-vue.jpg" alt="" class="mw-100" />
-        </div>
-        <div class="pro-content">
-          <div class="p-title">3.검색 사이트</div>
-          <div class="content">
-            <p>Kakao Api를 이용한 검색사이트</p>
-            <p>Ajax</p>
-            <p>Postman</p>
-          </div>
-          <div class="go-view">
-            <a href="#">Demo</a>
-            <a href="#">자세히 보기</a>
-            <a href="#">소스 보기</a>
-          </div>
-        </div>
-      </div>
-      <div class="project">
-        <div class="pro-content">
-          <div class="p-title">4.날씨 앱 (Vue.js)</div>
-          <div class="content">
-            <p>Vue.js로 만든 날씨앱</p>
-            <p></p>
-            <p>Vue.js, Vuex</p>
-          </div>
-          <div class="go-view">
-            <a href="#">Demo</a>
-            <a href="#">자세히 보기</a>
-            <a href="#">소스 보기</a>
-          </div>
-        </div>
-        <div class="img">
-          <img src="/img/book-vue.jpg" alt="" class="mw-100" />
-        </div>
-      </div>
-      <div class="project">
+      <!-- <div class="project">
         <div class="img">
           <img src="/img/book-vue.jpg" alt="" class="mw-100" />
         </div>
@@ -220,13 +227,23 @@
             <p>React, Redux, Node.js, Sequelize</p>
           </div>
           <div class="go-view">
-            <a href="#">Demo</a>
-            <a href="#">자세히 보기</a>
-            <a href="#">소스 보기</a>
+            <div class="go">Demo</div>
+            <div class="go">자세히 보기</div>
+            <div class="go">Github</div>
           </div>
         </div>
-      </div>
+      </div> -->
     </section>
+    <footer class="footer-wrapper ">
+      <div class="contact-wrap">
+        <div class="contact">
+          <i class="fa fa-phone mb-3 text-center"> 010.9476.8249</i>
+          <i class="fa fa-envelope mb-3 text-center"> namwonbin@gmail.com</i>
+          <a href="https://github.com/1binibin" class="fab fa-github fa-2x text-center mb-3" aria-hidden="true" target="_blank"></a>  
+        </di>
+        <p>ⓒ copyright Binibin. Allright reserved.</p>
+      </div>
+    </footer>
     <script src="../js/index.js"></script>
   </body>
 </html>

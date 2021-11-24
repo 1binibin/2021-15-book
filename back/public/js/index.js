@@ -1,12 +1,19 @@
 var y = window.innerHeight;
-
 window.addEventListener('scroll', function () {
-  console.log(y, this.scrollY);
-  if (window.scrollY >= y) {
+  if (window.scrollY >= y - 64) {
     $('.navi-wrapper').addClass('active');
   } else {
     $('.navi-wrapper').removeClass('active');
   }
 });
 
-// AOS.init({ once: false });
+$('#git').click(goGit);
+
+function goGit() {
+  location.href = 'https://github.com/1binibin';
+}
+
+AOS.init({
+  offset: 300,
+  duration: 500,
+});
