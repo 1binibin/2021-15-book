@@ -65,12 +65,11 @@ a:hover {
   align-items: center;
   color: white;
   opacity: 0.75;
-  z-index: 999;
+  z-index: 9999999;
 }
 .active {
   background-color: white;
   color: #000;
-  z-index: 9999;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
 }
 .navi-wrapper .navi {
@@ -83,6 +82,10 @@ a:hover {
 }
 .navi-wrapper .navi:hover {
   background-color: #bab2b5;
+}
+.navi-wrapper.active .navi:hover {
+  background-color: #bab2b5;
+  cursor: pointer;
 }
 .navi-wrapper .icon-wrapper {
   margin-left: auto;
