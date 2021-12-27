@@ -209,6 +209,7 @@ ion-icon {
 }
 .content {
   padding: 1em;
+  min-height: 180px;
 }
 
 .prj-content .content p {
