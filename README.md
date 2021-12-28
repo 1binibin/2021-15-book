@@ -72,3 +72,7 @@
 - json으로 데이터를 리턴
 
 ## [Front Server](https://binibin-vue-book.web.app/)
+
+# Database
+![book-erd](https://user-images.githubusercontent.com/87403399/147545503-1062da7d-904e-428a-920d-393c0e991664.png)
+
